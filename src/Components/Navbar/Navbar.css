@@ -1,0 +1,58 @@
+.Sessao-navbar{
+    border: 2px solid red;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.Sessao-caminhos{
+    border: 2px solid red ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 540px;
+}
+.btn-user{
+    border: none;
+    cursor: pointer;
+    background-color: #fff;
+}
+.Sessao-reservas{
+    border: 2px solid red;
+    display: flex;
+    align-items: center;
+    width: 250px;
+    display: flex;
+    justify-content: space-around;
+}
+.Sessao-logo{
+    border: 2px solid red;
+}
+.Link{
+    text-decoration: none;
+    font-size: 16px;
+    color: #000;
+}
+.Link-reserva{
+    text-decoration: none;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+}
+.Box-reservas{
+    background-color: black;
+    width: 120px;
+    height: 30px;
+    border-radius: 50px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Box-perfil{
+    border: 2px solid red;
+    
+}
+.icon{
+    font-size: 23px; /* Ajuste o valor conforme necessário */
+}

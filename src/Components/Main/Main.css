@@ -1,0 +1,9 @@
+.Imagem{
+    
+    background-image: url('../../Image/Imagem-casa.png');
+    background-size: cover; /* Ajusta a imagem para cobrir todo o elemento */
+    background-position: center; /* Centraliza a imagem no elemento */
+    background-repeat: no-repeat; 
+    border: 2px solid red;
+
+}
