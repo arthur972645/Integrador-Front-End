@@ -1,9 +1,80 @@
+.Main{
+    /* border: 2px solid red; */
+    height: 100rem;
+    padding-top: 2rem;
+}
 .Imagem{
-    
+    /* border: 2px solid red; */
+    padding-left: 50px;
+    padding-right: 50px;
     background-image: url('../../Image/Imagem-casa.png');
-    background-size: cover; /* Ajusta a imagem para cobrir todo o elemento */
-    background-position: center; /* Centraliza a imagem no elemento */
-    background-repeat: no-repeat; 
-    border: 2px solid red;
+    background-repeat: no-repeat;
+    height: 54rem;
+    margin-left: 50px;
+    margin-right: 50px;
+    background-size: 112.5rem;
+    display: flex;
+}
+.Textos-Imagem{
+    /* border: 2px solid red; */
+}
+.Info-imagem{
+    /* border: 2px solid red; */
+    padding-left: 10rem;   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.texto1{
+    font-size: 30px;
+    color: #fff;
+    font-weight: 200;
+}
+.texto2{
+    font-size: 60px;
+    color: #fff;
+    font-weight: 600;
+    width: 15em;
+}
+.Btns-Imagem{
+    display: flex;
+    padding-top: 1rem;
+}
+.Btn-imagem-reservar button{
+    width: 15rem;
+    height: 3rem;
+    border-radius: 30px;
+    font-size: 17px;
+    color: black;
+    font-weight: 400;
+    cursor: pointer;
+    border: none;
+    transition: 0.4s ease;
+}
+.Btn-imagem-reservar button:hover{
+    background-color: #000;
+    color: #fff;
+}
+.Btn-imagem-localização{
+    /* border: 2px solid red; */
+    margin-left: 10px;
 
+   
+}
+.Btn-imagem-localização button{
+    cursor: pointer;
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100px;
+    background-color: transparent;
+   
+}
+.Icon-localizacao{
+    font-size: 2rem;
+    color: #fff;
+    transition: 0.4s ease;
+}
+.Icon-localizacao:hover{
+    color: black;
 }

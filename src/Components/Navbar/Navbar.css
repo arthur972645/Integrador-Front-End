@@ -1,12 +1,12 @@
 .Sessao-navbar{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     justify-content: space-between;
     padding-left: 50px;
     padding-right: 50px;
 }
 .Sessao-caminhos{
-    border: 2px solid red ;
+    /* border: 2px solid red ; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -18,7 +18,7 @@
     background-color: #fff;
 }
 .Sessao-reservas{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     align-items: center;
     width: 250px;
@@ -26,7 +26,7 @@
     justify-content: space-around;
 }
 .Sessao-logo{
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 .Link{
     text-decoration: none;
@@ -50,9 +50,17 @@
     align-items: center;
 }
 .Box-perfil{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     
 }
 .icon{
     font-size: 23px; /* Ajuste o valor conforme necessário */
+}
+.Box-pesquisar button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.Icon-lupa{
+    font-size: 1.5rem;
 }

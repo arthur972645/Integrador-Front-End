@@ -1,4 +1,5 @@
 import ImagemLogo from '../../Image/Imagem_Logo.png'
+import { HiMagnifyingGlass } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import { LuUser } from "react-icons/lu";
 import './Navbar.css'
@@ -27,7 +28,10 @@ const Navbar = () => {
                     
                 </div>
                 <div className='Box-pesquisar'>
-                    <p>lupa</p>
+                    <button>
+                        <HiMagnifyingGlass  className='Icon-lupa'/>
+                    </button>
+                    
                 </div>
             </div>
         </main>
