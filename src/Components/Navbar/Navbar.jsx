@@ -7,7 +7,7 @@ import './Navbar.css'
 const Navbar = () => {
     return(
        
-        <main className="Sessao-navbar">
+        <section className="Sessao-navbar">
             <div className="Sessao-logo">
                 <img src={ImagemLogo} alt="" />
             </div>
@@ -34,7 +34,7 @@ const Navbar = () => {
                     
                 </div>
             </div>
-        </main>
+        </section>
     )
 }
 export default Navbar
