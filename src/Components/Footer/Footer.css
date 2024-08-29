@@ -1,0 +1,38 @@
+
+.Informacoes-Pousada{
+  width:25%;
+  padding-left: 20px;
+  display: flex;
+  color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  /* border: 2px solid red; */
+}
+.Footer{
+  height: 200px;
+  width: 100%;
+  background-color: #7E2726;
+  /* border: 2px  solid red; */
+  display: flex;
+  justify-content: space-between;
+
+  
+}
+.Direitos{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid red; */
+  color:  #fff;
+  width: 30%;
+}
+.Desenvolvedores{
+  /* border: 2px solid red; */
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-right: 20px;
+  color: #fff;
+}
