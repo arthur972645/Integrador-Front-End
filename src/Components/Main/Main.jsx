@@ -7,19 +7,22 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { IoIosStar } from "react-icons/io";
 import Footer from "../Footer/Footer.jsx"
 import Hospedagem01 from "../../Image/Hospedagem01.png";
-import H2 from "../../Image/H.2.png";
-import H3 from "../../Image/H.3.png";
+import Hospedagem02 from "../../Image/Hospedagem02.png";
+import Hospedagem03 from "../../Image/Hospedagem03.png";
+import Hospedagem04 from "../../Image/Hospedagem04.png"
+import Hospedagem05 from "../../Image/Hospedagem05.png"
+import Hospedagem06 from "../../Image/Hospedagem06.png"
 import './Main.css';
 
 const Main = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const hospedagens = [
     { src: Hospedagem01, title: 'Domo', beds: '1 de casal', rating: 4.5 },
-    { src: H2, title: 'Charrua (Bus)', beds: '1 de casal', rating: 4.5 },
-    { src: H3, title: 'Charrua (Bus)', beds: '1 de casal', rating: 4.5 },
-    { src: H3, title: 'Charrua (Bus)', beds: '1 de casal', rating: 4.5 },
-    { src: H3, title: 'Charrua (Bus)', beds: '1 de casal', rating: 4.5 },
-    { src: H3, title: 'Charrua (Bus)', beds: '1 de casal', rating: 4.5 }
+    { src: Hospedagem02, title: 'Charrua (Bus)', beds: '1 de casal', rating: 4.5 },
+    { src: Hospedagem03, title: 'Charrua (Bus)', beds: '1 de casal', rating: 4.5 },
+    { src: Hospedagem04, title: 'Charrua (Bus)', beds: '1 de casal', rating: 4.5 },
+    { src: Hospedagem05, title: 'Charrua (Bus)', beds: '1 de casal', rating: 4.5 },
+    { src: Hospedagem06, title: 'Charrua (Bus)', beds: '1 de casal', rating: 4.5 }
   ];
 
   const handleNext = () => {
@@ -45,7 +48,7 @@ const Main = () => {
                 <div className="texto2">Sua Melhor Experiência de Hotel Começa Aqui!</div>
                 <div className="Btns-Imagem">
                   <div className="Btn-imagem-reservar">
-                    <button>Reserve sua Estadia</button>
+                    <button className="Button-animado">Reserve sua Estadia</button>
                   </div>
                   <div className="Btn-imagem-localizacao">
                     <FaLocationDot onClick={() => window.open('https://www.google.com/maps?q=-28.5399126,-48.7780686', '_blank')} className="Icon-localizacao" />

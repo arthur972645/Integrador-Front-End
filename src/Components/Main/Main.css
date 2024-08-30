@@ -1,19 +1,30 @@
+body {
+    overflow-x: hidden;
+  }
 .Main {
   height: 110rem;
   padding-top: 2rem;
 }
+.Sessao-Imagem{
+    /* border: 2px solid red; */
+    padding-left: 50px;
+    padding-right: 50px;
+    min-width: 1848px;
+}
 
 .Imagem {
-  padding-left: 50px;
-  padding-right: 50px;
-  background-image: url('../../Image/Imagem-casa.png');
-  background-repeat: no-repeat;
-  height: 54rem;
-  margin-left: 50px;
-  margin-right: 50px;
-  background-size: cover;
-  display: flex;
-}
+    padding-left: 50px;
+    padding-right: 50px;
+    background-image: url('../../Image/Imagem-casa.png');
+    background-repeat: no-repeat;   
+    height: 54rem;
+    width: 1800px; 
+    max-width: 100%;
+    background-size: contain;
+    display: flex;
+    /* border: 2px solid red; */
+  }
+  
 
 .Textos-Imagem {
     /* border: 2px solid red; */
@@ -50,22 +61,56 @@
   padding-top: 1rem;
 }
 
-.Btn-imagem-reservar button {
-  width: 15rem;
-  height: 3rem;
-  border-radius: 30px;
-  font-size: 17px;
-  color: black;
-  font-weight: 400;
-  cursor: pointer;
-  border: none;
-  transition: 0.4s ease;
+.Button-animado {
+    display: inline-block;
+    border: none;
+    padding: .75rem 1.25rem;
+    border-radius: 10rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: .15rem;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    color: #000;
+    cursor: pointer;
 }
 
-.Btn-imagem-reservar button:hover {
-  background-color: #000;
-  color: #fff;
+.Button-animado:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10rem;
+    z-index: -2;
 }
+
+.Button-animado::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #000; /* Escurecido manualmente */
+    transition: all .3s;
+    border-radius: 10rem;
+    z-index: -1;
+}
+
+.Button-animado:hover {
+    color: #fff;
+}
+
+.Button-animado:hover::before {
+    width: 100%;
+}
+
+
 
 .Btn-imagem-localizacao {
   margin-left: 10px;
@@ -78,17 +123,21 @@
 
 .Btn-imagem-localizacao:hover {
   transform: scale(1.1);
+  
 }
 
 .Icon-localizacao {
   font-size: 2rem;
   color: #fff;
+  transition: 0.3s ease;
+}
+.Icon-localizacao:hover{
+    color:#000;
 }
 
 .Redes-Sociais {
   padding-left: 6rem;
   /* border: 2px solid red; */
-  padding-top: 2rem;
 }
 
 .Box-redeSocial {
@@ -161,13 +210,14 @@
 .Carrosel-hospedagens {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  width: fit-content; /* Ajusta ao conteúdo */
+  width: fit-content; 
   padding-top: 3rem;
 }
 
 .Hospedagem {
-  flex-shrink: 0; /* Não encolhe o card */
+  flex-shrink: 0; 
   width: 33.2rem;
+  height: 30rem;
   margin-left: 70px;
   border-radius: 15px;
   overflow: hidden;
@@ -175,6 +225,7 @@
   background-color: rgb(250, 250, 250);
   transition: transform 0.3s ease;
   border-radius: 50px;
+  /* border: 2px solid red; */
 }
 
 .Hospedagem:hover {
@@ -221,8 +272,4 @@
 
 .Icon-estrela {
   color: #fff;
-}
-
-body {
-  overflow-x: hidden;
 }
