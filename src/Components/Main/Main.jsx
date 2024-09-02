@@ -5,7 +5,6 @@ import { SlSocialFacebook } from "react-icons/sl";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { IoIosStar } from "react-icons/io";
-import Footer from "../Footer/Footer.jsx"
 import Hospedagem01 from "../../Image/Hospedagem01.png";
 import Hospedagem02 from "../../Image/Hospedagem02.png";
 import Hospedagem03 from "../../Image/Hospedagem03.png";
@@ -106,7 +105,7 @@ const Main = () => {
           </div>
         </section>
       </section>
-    <Footer/>
+    
   </>
   );
 };
