@@ -1,4 +1,5 @@
 import React from 'react'; // Assegura que o React seja importado
+import { GoLinkExternal } from "react-icons/go";
 import './Footer.css'; // Importa o CSS para o componente
 
 const Footer = () => {
@@ -13,10 +14,10 @@ const Footer = () => {
         <div className='Direitos'>
           <p>© Pousada Quinta do Ypuã Todos os direitos reservados</p>
         </div>
-        <div className='Desenvolvedores'> 
-          <p>- Arthur de amorinm lucena lima</p>
-          <p>- Arthur de amorinm lucena lima</p>
-          <p>- Arthur de amorinm lucena lima</p>
+        <div className='Redes-sociais-foote'> 
+          <a href="#">Instagram <GoLinkExternal className='GoLinkExternal' /></a>
+          <a href="#">Facebook <GoLinkExternal className='GoLinkExternal'/></a>
+          <a href="#">TikTok <GoLinkExternal className='GoLinkExternal'/></a>
         </div>
     
       

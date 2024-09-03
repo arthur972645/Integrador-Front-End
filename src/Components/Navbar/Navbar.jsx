@@ -1,21 +1,22 @@
 import ImagemLogo from '../../Image/Imagem_Logo.png'
 import { HiMagnifyingGlass } from "react-icons/hi2";
-import { Link } from "react-router-dom";
 import { LuUser } from "react-icons/lu";
-import './Navbar.css'
+import { Link, useLocation } from "react-router-dom";
+import './Navbar.css';
 
 const Navbar = () => {
-    return(
-       
+    const location = useLocation();
+    
+    return (
         <section className="Sessao-navbar">
             <div className="Sessao-logo">
-                <img src={ImagemLogo} alt="" />
+                <img src={ImagemLogo} alt="Logo" />
             </div>
             <div className="Sessao-caminhos">
-                <Link className='Link' to='/'>Home</Link>
-                <Link className='Link' to= "/Contato">Contato</Link>
-                <Link className='Link' to="/Acomodações">Acomodação</Link>
-                <Link className='Link' to="/Sobre">Sobre</Link>
+                <NavItem path='/' currentPath={location.pathname}>Home</NavItem>
+                <NavItem path='/Contato' currentPath={location.pathname}>Contato</NavItem>
+                <NavItem path='/Acomodações' currentPath={location.pathname}>Acomodação</NavItem>
+                <NavItem path='/Sobre' currentPath={location.pathname}>Sobre</NavItem>
             </div>
             <div className="Sessao-reservas">
                 <div className='Box-reservas'>
@@ -25,16 +26,27 @@ const Navbar = () => {
                     <button className='btn-user'>
                         <LuUser className='icon' />
                     </button>
-                    
                 </div>
                 <div className='Box-pesquisar'>
                     <button>
-                        <HiMagnifyingGlass  className='Icon-lupa'/>
+                        <HiMagnifyingGlass className='Icon-lupa'/>
                     </button>
-                    
                 </div>
             </div>
         </section>
     )
 }
-export default Navbar
+
+const NavItem = ({ path, currentPath, children }) => {
+    const isActive = currentPath === path;
+    return (
+        <div className="nav-item">
+            <Link className='Link' to={path}>
+                {children}
+            </Link>
+            <div className={`underline ${isActive ? 'active' : ''}`} />
+        </div>
+    );
+}
+
+export default Navbar;

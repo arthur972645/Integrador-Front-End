@@ -15,30 +15,37 @@ import './Main.css';
 
 const Main = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isNextClicked, setIsNextClicked] = useState(false);
+  const [isPrevClicked, setIsPrevClicked] = useState(false);
+
   const hospedagens = [
     { src: Hospedagem01, title: 'Domo', beds: '1 de casal', rating: 4.5 },
     { src: Hospedagem02, title: 'Charrua (Bus)', beds: '1 de casal', rating: 4.5 },
-    { src: Hospedagem03, title: 'Charrua (Bus)', beds: '1 de casal', rating: 4.5 },
-    { src: Hospedagem04, title: 'Charrua (Bus)', beds: '1 de casal', rating: 4.5 },
-    { src: Hospedagem05, title: 'Charrua (Bus)', beds: '1 de casal', rating: 4.5 },
-    { src: Hospedagem06, title: 'Charrua (Bus)', beds: '1 de casal', rating: 4.5 }
+    { src: Hospedagem03, title: 'Chalé família', beds: '1 de casal', rating: 4.5 },
+    { src: Hospedagem04, title: 'Suíte com cozinha', beds: '1 de casal', rating: 4.5 },
+    { src: Hospedagem05, title: 'Cabana', beds: '1 de casal', rating: 4.5 },
+    { src: Hospedagem06, title: 'Estacionamento para overlanders', beds: '1 de casal', rating: 4.5 }
   ];
 
   const handleNext = () => {
     if (currentIndex < hospedagens.length - 1) {
       setCurrentIndex(currentIndex + 1);
+      setIsNextClicked(true);  // Marcar que o botão "btn-prosseguir" foi clicado
+      setIsPrevClicked(false); // Resetar o estado de "btn-voltar"
     }
   };
 
   const handlePrev = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
+      setIsPrevClicked(true);  // Marcar que o botão "btn-voltar" foi clicado
+      setIsNextClicked(false); // Resetar o estado de "btn-prosseguir"
     }
   };
 
   return (
     <>
-  <section className="Main">
+      <section className="Main">
         <section className="Sessao-Imagem">
           <div className="Imagem">
             <div className="Info-imagem">
@@ -55,16 +62,14 @@ const Main = () => {
                 </div>
               </div>
               <div className="Sessao-mensagem-fedeabck">
-                <div className="teste">
                   <div className="box-mensagem-fedeabck1">
+                      {/* <h1>FAZER A INTERAÇÃO COM A API TERÇA(HOJE)</h1> */}
                   </div>
-                </div>
-                <div className="box-mensagem-fedeabck2">
-                </div>
               </div>
             </div>
           </div>
         </section>
+
         <section className="Redes-Sociais">
           <div className="Box-redeSocial">
               <p>Siga: </p>
@@ -73,20 +78,28 @@ const Main = () => {
             <FaWhatsapp onClick={() => window.open('#')} className="Icon-zap"/>
           </div>
         </section>    
+
         <section className="Hospoedagens-populares">
           <div className="Texto-Btn">
             <div className="Texto-Hospedagens">
               <p>Hospedagens Populares</p>
             </div>
             <div className="Btn-Hospedagens">
-              <div className="Btn-voltar" onClick={handlePrev}>
+              <div
+                className={`Btn-voltar ${isNextClicked ? 'escuro' : ''}`}
+                onClick={handlePrev}
+              >
                 <IoIosArrowBack />
               </div>
-              <div className="Btn-Prosseguir" onClick={handleNext}>
+              <div
+                className={`Btn-Prosseguir ${isPrevClicked ? 'escuro' : ''}`}
+                onClick={handleNext}
+              >
                 <IoIosArrowForward />
               </div>
             </div>
           </div>
+
           <div className="Carrosel-hospedagens" style={{ transform: `translateX(-${currentIndex * 33.2}rem)` }}>
             {hospedagens.map((hospedagem, index) => (
               <div className="Hospedagem" key={index}>
@@ -105,8 +118,7 @@ const Main = () => {
           </div>
         </section>
       </section>
-    
-  </>
+    </>
   );
 };
 

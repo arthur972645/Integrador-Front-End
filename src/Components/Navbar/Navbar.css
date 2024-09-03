@@ -49,10 +49,6 @@
     justify-content: center;
     align-items: center;
 }
-.Box-perfil{
-    /* border: 2px solid red; */
-    
-}
 .icon{
     font-size: 23px; /* Ajuste o valor conforme necessário */
 }
@@ -63,4 +59,32 @@
 }
 .Icon-lupa{
     font-size: 1.5rem;
+}
+.Link {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    position: relative;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.underline {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #7E2726;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-item:hover .underline {
+    width: 100%;
+}
+
+.underline.active {
+    width: 100%;
 }
