@@ -3,14 +3,15 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoLogoInstagram } from "react-icons/io";
 import { SlSocialFacebook } from "react-icons/sl";
 import { FaWhatsapp } from "react-icons/fa";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { IoIosStar } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward,  IoIosStar  } from "react-icons/io";
 import Hospedagem01 from "../../Image/Hospedagem01.png";
 import Hospedagem02 from "../../Image/Hospedagem02.png";
 import Hospedagem03 from "../../Image/Hospedagem03.png";
 import Hospedagem04 from "../../Image/Hospedagem04.png"
 import Hospedagem05 from "../../Image/Hospedagem05.png"
 import Hospedagem06 from "../../Image/Hospedagem06.png"
+import imagem_perfil_01 from "../../Image/imagem_perfil_01.png";
+import imagem_perfil_02 from "../../Image/imagem_perfil_02.png";
 import './Main.css';
 
 const Main = () => {
@@ -63,7 +64,40 @@ const Main = () => {
               </div>
               <div className="Sessao-mensagem-fedeabck">
                   <div className="box-mensagem-fedeabck1">
-                      {/* <h1>FAZER A INTERAÇÃO COM A API TERÇA(HOJE)</h1> */}
+                    <div className="Sessao-mensagem1"> 
+                      <img src={imagem_perfil_01} alt="imagem de perfil do usuario" className="Imagem-perfil" />
+                       <section className="Comentario">
+                          <div className="nomo_do_cliente"> 
+                            <p>John</p>
+                            <div>
+                               <p> 
+                                  4,5 <IoIosStar className="Icon-estrela-comentario"/>
+                              </p>
+                            </div>
+                
+                          </div>
+                          
+                          <p>Lorem ipsum dolor sit amet. Et deserunt impedit ut omnis accusantium ea deserunt eius. </p>
+                          
+                       </section>
+                    </div>
+                    <div className="Sessao-mensagem2">
+                      <img src={imagem_perfil_02} alt="" className="Imagem-perfil" />
+                      <section className="Comentario">
+                          <div className="nomo_do_cliente"> 
+                            <p>Vitória</p>
+                            <div>
+                               <p> 
+                                 5,0 <IoIosStar className="Icon-estrela-comentario"/>
+                              </p>
+                            </div>
+                
+                          </div>
+                          
+                          <p>Lorem ipsum dolor sit amet. Et deserunt impedit ut omnis accusantium ea deserunt eius. </p>
+                          
+                       </section>
+                    </div>
                   </div>
               </div>
             </div>
