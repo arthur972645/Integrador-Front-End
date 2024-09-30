@@ -15,7 +15,7 @@ const Navbar = () => {
             <div className="Sessao-caminhos">
                 <NavItem path='/' currentPath={location.pathname}>Home</NavItem>
                 <NavItem path='/Contato' currentPath={location.pathname}>Contato</NavItem>
-                <NavItem path='/Acomodações' currentPath={location.pathname}>Acomodação</NavItem>
+                <NavItem path='/Acomodacoes' currentPath={location.pathname}>Acomodação</NavItem>
                 <NavItem path='/Sobre' currentPath={location.pathname}>Sobre</NavItem>
             </div>
             <div className="Sessao-reservas">

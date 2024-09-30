@@ -31,16 +31,16 @@ const Main = () => {
   const handleNext = () => {
     if (currentIndex < hospedagens.length - 1) {
       setCurrentIndex(currentIndex + 1);
-      setIsNextClicked(true);  // Marcar que o botão "btn-prosseguir" foi clicado
-      setIsPrevClicked(false); // Resetar o estado de "btn-voltar"
+      setIsNextClicked(true);  
+      setIsPrevClicked(false);
     }
   };
 
   const handlePrev = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
-      setIsPrevClicked(true);  // Marcar que o botão "btn-voltar" foi clicado
-      setIsNextClicked(false); // Resetar o estado de "btn-prosseguir"
+      setIsPrevClicked(true);  
+      setIsNextClicked(false); 
     }
   };
 
