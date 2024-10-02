@@ -1,7 +1,8 @@
-.Imagem01{
+.Imagens-acomodacoes{
     /* border: 2px solid red; */
     width: 500px;
     height: 280px;
+    border-radius: 50px;
 }
 .Main-Acomodacoes{
     height: 150rem;
@@ -19,7 +20,7 @@
     display: flex;
     flex-direction: column;
     width: 30%;
-    padding-left: 15px;
+    padding-left: 25px;
     
 }
 .Box-nota-nome{
