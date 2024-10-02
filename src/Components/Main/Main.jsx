@@ -30,7 +30,7 @@ const Main = () => {
 
   const handleNext = () => {
     if (currentIndex < hospedagens.length - 1) {
-      setCurrentIndex(currentIndex + 1);
+      setCurrentIndex(currentIndex + 0.4);
       setIsNextClicked(true);  
       setIsPrevClicked(false);
     }
@@ -38,7 +38,7 @@ const Main = () => {
 
   const handlePrev = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+      setCurrentIndex(currentIndex - 0.4);
       setIsPrevClicked(true);  
       setIsNextClicked(false); 
     }
@@ -116,7 +116,7 @@ const Main = () => {
         <section className="Hospoedagens-populares">
           <div className="Texto-Btn">
             <div className="Texto-Hospedagens">
-              <p>Hospedagens Populares</p>
+              <p className="Hospedagens-titulo">Hospedagens Populares</p>
             </div>
             <div className="Btn-Hospedagens">
               <div

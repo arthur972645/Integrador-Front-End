@@ -1,72 +1,81 @@
 body {
-    overflow-x: hidden;
-  }
+  overflow-x: hidden;
+}
+
 .Main {
   height: 110rem;
   padding-top: 2rem;
 }
-.nomo_do_cliente{
+
+.nomo_do_cliente {
   display: flex;
   justify-content: space-between;
   font-weight: 600;
 }
-.Icon-estrela-comentario{
+
+.Icon-estrela-comentario {
   color: #EFC35F;
   ;
 }
-.Comentario{
+
+.Comentario {
   /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
   justify-content: end;
   padding-left: 1rem;
 }
-.Imagem-perfil{
+
+.Imagem-perfil {
   height: 70px;
 }
-.Sessao-Imagem{
-    /* border: 2px solid red; */
-    padding-left: 50px;
-    padding-right: 50px;
-    min-width: 1848px;
+
+.Sessao-Imagem {
+  /* border: 2px solid red; */
+  padding-left: 50px;
+  padding-right: 50px;
+  min-width: 1848px;
 }
-.Sessao-mensagem1{
+
+.Sessao-mensagem1 {
   /* border: 2px solid red; */
   display: flex;
 
 }
-.Sessao-mensagem2{
+
+.Sessao-mensagem2 {
   /* border: 2px solid red; */
   display: flex;
 }
 
 .Imagem {
-    padding-left: 50px;
-    background-image: url('../../Image/Imamgem_de_fundo.png');
-    background-repeat: no-repeat;   
-    height: 54rem;
-    width: 1800px; 
-    max-width: 100%;
-    background-size: contain;
-    display: flex;
-    /* border: 2px solid red; */
-  }
-  .box-mensagem-fedeabck1{
-    /* border: 2px solid red; */
-    width: 520px;   
-    height: 250px;  
-    background-color: #f0f0f0;
-    border-radius: 70px 70px 0px;
-    padding-left: 20px;
-    padding-right: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-start;
-  
-  }
+  padding-left: 50px;
+  background-image: url('../../Image/Imamgem_de_fundo.png');
+  background-repeat: no-repeat;
+  height: 54rem;
+  width: 1800px;
+  max-width: 100%;
+  background-size: contain;
+  display: flex;
+  /* border: 2px solid red; */
+}
 
-.Sessao-mensagem-fedeabck{
+.box-mensagem-fedeabck1 {
+  /* border: 2px solid red; */
+  width: 520px;
+  height: 250px;
+  background-color: #f0f0f0;
+  border-radius: 70px 70px 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+
+}
+
+.Sessao-mensagem-fedeabck {
   /* border: 2px solid red; */
   width: 100%;
   display: flex;
@@ -74,7 +83,7 @@ body {
 }
 
 .Textos-Imagem {
-    /* border: 2px solid red; */
+  /* border: 2px solid red; */
   height: 42.5rem;
   display: flex;
   flex-direction: column;
@@ -82,7 +91,7 @@ body {
 }
 
 .Info-imagem {
-    /* border: 2px solid red; */
+  /* border: 2px solid red; */
   padding-left: 10rem;
   display: flex;
   flex-direction: column;
@@ -93,6 +102,7 @@ body {
 .texto1 {
   font-size: 30px;
   color: #fff;
+  
   font-weight: 200;
 }
 
@@ -101,6 +111,7 @@ body {
   color: #fff;
   font-weight: 600;
   width: 15em;
+
 }
 
 .Btns-Imagem {
@@ -109,52 +120,53 @@ body {
 }
 
 .Button-animado {
-    display: inline-block;
-    border: none;
-    padding: .75rem 1.25rem;
-    border-radius: 10rem;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 1rem;
-    letter-spacing: .15rem;
-    transition: all .3s;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    color: #000;
-    cursor: pointer;
+  display: inline-block;
+  border: none;
+  padding: .75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: .15rem;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: #000;
+  cursor: pointer;
 }
 
 .Button-animado:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 10rem;
-    z-index: -2;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10rem;
+  z-index: -2;
 }
 
 .Button-animado::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0%;
-    height: 100%;
-    background-color: #000; /* Escurecido manualmente */
-    transition: all .3s;
-    border-radius: 10rem;
-    z-index: -1;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #000;
+  /* Escurecido manualmente */
+  transition: all .3s;
+  border-radius: 10rem;
+  z-index: -1;
 }
 
 .Button-animado:hover {
-    color: #fff;
+  color: #fff;
 }
 
 .Button-animado:hover::before {
-    width: 100%;
+  width: 100%;
 }
 
 
@@ -173,7 +185,7 @@ body {
 
 .Btn-imagem-localizacao:hover {
   transform: scale(1.1);
-  
+
 }
 
 .Icon-localizacao {
@@ -208,9 +220,11 @@ body {
   padding-right: 50px;
   padding-top: 2rem;
 }
-.Btn-Hospedagens{
-    display: flex;
+
+.Btn-Hospedagens {
+  display: flex;
 }
+
 .Texto-Btn {
   /* border:  2px solid red; */
   display: flex;
@@ -240,9 +254,10 @@ body {
   background-color: #f3f3f3;
   transition: background-color 0.3s ease;
 }
+
 .Btn-voltar.escuro,
 .Btn-Prosseguir.escuro {
-  background-color: rgba(0, 0, 0, 0.2); 
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .Carrosel-hospedagens {
@@ -251,13 +266,13 @@ body {
   justify-content: space-between;
   align-items: start;
   transition: transform 0.5s ease-in-out;
-  width: 200rem; 
+  width: 200rem;
   padding-top: 3rem;
 }
 
 .Hospedagem {
   /* border: 2px solid red; */
-  flex-shrink: 0; 
+  flex-shrink: 0;
   width: 30rem;
   height: 30rem;
   overflow: hidden;
@@ -314,4 +329,75 @@ body {
 
 .Icon-estrela {
   color: #fff;
+}
+
+@media (max-width: 480px) {
+
+  .Imagem {
+    background-image: url('../.././Image/image.png');
+    height: 300px;
+    align-items: center;
+  }
+
+  .Texto-Hospedagens p {
+    /* border: 2px solid red; */
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .Sessao-Imagem {
+    /* border: 2px solid red; */
+    padding-left: 10px;
+    padding-right: 10px;
+    min-width: 100px;
+  }
+
+  .Hospoedagens-populares {
+    padding-left: 40px;
+    padding-right: 10px;
+    padding-top: 10rem;
+    margin-top: 300px;
+  }
+
+  .Hospedagem {
+    /* border: 2px solid red; */
+    flex-shrink: 0;
+    width: 20rem;
+    height: 20rem;
+    margin-right: 15px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgb(250, 250, 250);
+    transition: transform 0.3s ease;
+    border-radius: 50px;
+
+    /* border: 2px solid red; */
+  }
+
+  .Carrosel-hospedagens {
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    transition: transform 0.5s ease-in-out;
+    width: 120rem;
+    padding-top: 3rem;
+  }
+
+  .texto2 {
+    font-size: 20px;
+    padding-bottom: 50px;
+  }
+
+  .Info-imagem {
+    padding-left: 0;
+    padding-top: 10rem;
+  }
+
+  .Main {
+    height: 85rem;
+  }
+ .Textos-Imagem{
+  
+ }
 }
