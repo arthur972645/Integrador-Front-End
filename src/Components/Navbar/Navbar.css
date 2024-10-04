@@ -124,4 +124,10 @@
     .Box-reservas {
         width: 100px; 
     }
+
+    .Sessao-reservas{
+     
+        position: fixed;
+        justify-content: end;
+      }
 }

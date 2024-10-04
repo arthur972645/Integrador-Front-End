@@ -102,7 +102,7 @@ body {
 .texto1 {
   font-size: 30px;
   color: #fff;
-  
+
   font-weight: 200;
 }
 
@@ -355,8 +355,8 @@ body {
   .Hospoedagens-populares {
     padding-left: 40px;
     padding-right: 10px;
-    padding-top: 10rem;
-    margin-top: 300px;
+   
+    
   }
 
   .Hospedagem {
@@ -381,7 +381,7 @@ body {
     align-items: start;
     transition: transform 0.5s ease-in-out;
     width: 120rem;
-    padding-top: 3rem;
+    padding-top: 2rem;
   }
 
   .texto2 {
@@ -391,13 +391,29 @@ body {
 
   .Info-imagem {
     padding-left: 0;
-    padding-top: 10rem;
+    padding-top: 8rem;
+    
   }
 
   .Main {
-    height: 85rem;
+    height: 70rem;
   }
- .Textos-Imagem{
-  
- }
+
+  .box-mensagem-fedeabck1 {
+    display: none;
+
+  }
+
+  .Btns-Imagem {
+    margin: 40px;
+  }
+
+ 
+  .Redes-Sociais{
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 1px;
+  }
 }
