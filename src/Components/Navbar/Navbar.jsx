@@ -1,5 +1,4 @@
 import ImagemLogo from '../../Image/Imagem_Logo.png'
-import { HiMagnifyingGlass } from "react-icons/hi2";
 import { LuUser } from "react-icons/lu";
 import { Link, useLocation } from "react-router-dom";
 import './Navbar.css';
@@ -19,17 +18,9 @@ const Navbar = () => {
                 <NavItem path='/Sobre' currentPath={location.pathname}>Sobre</NavItem>
             </div>
             <div className="Sessao-reservas">
-                <div className='Box-reservas'>
-                    <Link className='Link-reserva' to="/Reservas">RESERVE JÁ</Link>
-                </div>
                 <div className='Box-perfil'>
                     <button className='btn-user'>
                         <LuUser className='icon' />
-                    </button>
-                </div>
-                <div className='Box-pesquisar'>
-                    <button>
-                        <HiMagnifyingGlass className='Icon-lupa'/>
                     </button>
                 </div>
             </div>
