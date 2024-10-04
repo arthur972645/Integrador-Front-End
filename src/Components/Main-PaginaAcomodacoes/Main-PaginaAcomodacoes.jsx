@@ -21,7 +21,7 @@ const MainPaginaAcomodacoes = () => (
     {acomodacoes.map((acomodacao, index) => (
       <div key={index} className="Box-Acomodacoes">
         <div className="Box-Imagem">
-          <img src={acomodacao.imagem} alt={acomodacao.nome} className="Imagem01" />
+          <img src={acomodacao.imagem} alt={acomodacao.nome} className="Imagens-acomodacoes" />
         </div>
         <div className="Box-informacoes">
           <div className="Box-nota-nome">
