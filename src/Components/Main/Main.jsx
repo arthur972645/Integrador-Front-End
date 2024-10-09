@@ -1,23 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoLogoInstagram } from "react-icons/io";
 import { SlSocialFacebook } from "react-icons/sl";
 import { FaWhatsapp } from "react-icons/fa";
-import { IoIosArrowBack, IoIosArrowForward,  IoIosStar  } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward, IoIosStar } from "react-icons/io";
 import Hospedagem01 from "../../Image/Hospedagem01.png";
 import Hospedagem02 from "../../Image/Hospedagem02.png";
 import Hospedagem03 from "../../Image/Hospedagem03.png";
-import Hospedagem04 from "../../Image/Hospedagem04.png"
-import Hospedagem05 from "../../Image/Hospedagem05.png"
-import Hospedagem06 from "../../Image/Hospedagem06.png"
+import Hospedagem04 from "../../Image/Hospedagem04.png";
+import Hospedagem05 from "../../Image/Hospedagem05.png";
+import Hospedagem06 from "../../Image/Hospedagem06.png";
 import imagem_perfil_01 from "../../Image/imagem_perfil_01.png";
 import imagem_perfil_02 from "../../Image/imagem_perfil_02.png";
 import './Main.css';
+import axios from 'axios';
+
+// Função para buscar o valor atual do dólar
+async function GetCurrentDolar() {
+  try {
+    const response = await axios.get('http://localhost:3333/usuarios/usd');
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao buscar valor do dólar:", error);
+    return null;
+  }
+}
 
 const Main = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isNextClicked, setIsNextClicked] = useState(false);
   const [isPrevClicked, setIsPrevClicked] = useState(false);
+  const [dolarValue, setDolarValue] = useState(""); 
+  // Usando useEffect para chamar a função quando o componente for montado
+  useEffect(() => {
+    async function fetchDolarValue() {
+      const dolar = await GetCurrentDolar();
+      setDolarValue(dolar);
+    }
+
+    fetchDolarValue();
+  }, []); // O array vazio faz com que o efeito execute apenas uma vez, na montagem do componente
 
   const hospedagens = [
     { src: Hospedagem01, title: 'Domo', beds: '1 de casal', rating: 4.5 },
@@ -51,7 +73,7 @@ const Main = () => {
           <div className="Imagem">
             <div className="Info-imagem">
               <div className="Textos-Imagem">
-                <div className="texto1">Descanse com Estilo</div>
+                <div className="texto1">Descanse com Estilo {dolarValue}</div> {/* Mostrando o valor do dólar */}
                 <div className="texto2">Sua Melhor Experiência de Hotel Começa Aqui!</div>
                 <div className="Btns-Imagem">
                   <div className="Btn-imagem-reservar">
@@ -63,42 +85,36 @@ const Main = () => {
                 </div>
               </div>
               <div className="Sessao-mensagem-fedeabck">
-                  <div className="box-mensagem-fedeabck1">
-                    <div className="Sessao-mensagem1"> 
-                      <img src={imagem_perfil_01} alt="imagem de perfil do usuario" className="Imagem-perfil" />
-                       <section className="Comentario">
-                          <div className="nomo_do_cliente"> 
-                            <p>John</p>
-                            <div>
-                               <p> 
-                                  4,5 <IoIosStar className="Icon-estrela-comentario"/>
-                              </p>
-                            </div>
-                
-                          </div>
-                          
-                          <p>Lorem ipsum dolor sit amet. Et deserunt impedit ut omnis accusantium ea deserunt eius. </p>
-                          
-                       </section>
-                    </div>
-                    <div className="Sessao-mensagem2">
-                      <img src={imagem_perfil_02} alt="" className="Imagem-perfil" />
-                      <section className="Comentario">
-                          <div className="nomo_do_cliente"> 
-                            <p>Vitória</p>
-                            <div>
-                               <p> 
-                                 5,0 <IoIosStar className="Icon-estrela-comentario"/>
-                              </p>
-                            </div>
-                
-                          </div>
-                          
-                          <p>Lorem ipsum dolor sit amet. Et deserunt impedit ut omnis accusantium ea deserunt eius. </p>
-                          
-                       </section>
-                    </div>
+                <div className="box-mensagem-fedeabck1">
+                  <div className="Sessao-mensagem1">
+                    <img src={imagem_perfil_01} alt="imagem de perfil do usuario" className="Imagem-perfil" />
+                    <section className="Comentario">
+                      <div className="nomo_do_cliente">
+                        <p>John</p>
+                        <div>
+                          <p>
+                            4,5 <IoIosStar className="Icon-estrela-comentario" />
+                          </p>
+                        </div>
+                      </div>
+                      <p>Lorem ipsum dolor sit amet. Et deserunt impedit ut omnis accusantium ea deserunt eius.</p>
+                    </section>
                   </div>
+                  <div className="Sessao-mensagem2">
+                    <img src={imagem_perfil_02} alt="" className="Imagem-perfil" />
+                    <section className="Comentario">
+                      <div className="nomo_do_cliente">
+                        <p>Vitória</p>
+                        <div>
+                          <p>
+                            5,0 <IoIosStar className="Icon-estrela-comentario" />
+                          </p>
+                        </div>
+                      </div>
+                      <p>Lorem ipsum dolor sit amet. Et deserunt impedit ut omnis accusantium ea deserunt eius.</p>
+                    </section>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -106,12 +122,12 @@ const Main = () => {
 
         <section className="Redes-Sociais">
           <div className="Box-redeSocial">
-              <p>Siga: </p>
+            <p>Siga: </p>
             <IoLogoInstagram onClick={() => window.open('#')} className="Icon-instagram" />
             <SlSocialFacebook onClick={() => window.open('#')} className="Icon-facebook" />
-            <FaWhatsapp onClick={() => window.open('#')} className="Icon-zap"/>
+            <FaWhatsapp onClick={() => window.open('#')} className="Icon-zap" />
           </div>
-        </section>    
+        </section>
 
         <section className="Hospoedagens-populares">
           <div className="Texto-Btn">
