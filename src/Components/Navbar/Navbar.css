@@ -2,7 +2,12 @@
     display: flex;
     justify-content: space-between;
     padding: 0 50px; 
-    flex-wrap: wrap; 
+    flex-wrap: wrap; ;
+    height: 80px;
+    /* border: 2px solid red; */
+   padding-left: 6%;
+   padding-right: 6%;
+    
 }
 
 .Sessao-caminhos {

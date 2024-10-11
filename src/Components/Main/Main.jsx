@@ -97,7 +97,7 @@ const Main = () => {
                           </p>
                         </div>
                       </div>
-                      <p>Lorem ipsum dolor sit amet. Et deserunt impedit ut omnis accusantium ea deserunt eius.</p>
+                      <p className="comentario-pessoa1">Lorem ipsum dolor sit amet. Et deserunt impedit ut omnis accusantium ea deserunt eius.</p>
                     </section>
                   </div>
                   <div className="Sessao-mensagem2">
@@ -111,7 +111,7 @@ const Main = () => {
                           </p>
                         </div>
                       </div>
-                      <p>Lorem ipsum dolor sit amet. Et deserunt impedit ut omnis accusantium ea deserunt eius.</p>
+                      <p className="comentario-pessoa2">Lorem ipsum dolor sit amet. Et deserunt impedit ut omnis accusantium ea deserunt eius.</p>
                     </section>
                   </div>
                 </div>
