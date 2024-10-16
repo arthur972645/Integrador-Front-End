@@ -1,0 +1,104 @@
+.frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    position: relative;
+    width: 100%;
+    max-width: 1070px;
+    margin: 0 auto;
+    padding: 80px 0;
+}
+
+.frame .quer-entrar-em {
+    font-family: "Poppins-SemiBold", Helvetica, sans-serif;
+    font-size: 64px;
+    font-weight: 600;
+    color: #000;
+    margin: 20px 0;
+}
+
+.frame .quer-entrar-em span {
+    position: relative;
+    right: 15%;
+}
+
+
+.frame .quer-amarelo {
+    color: #ffaa00;
+}
+
+.frame .contato {
+    display: flex;
+    justify-content: space-between;
+    gap: 61px;
+    margin-bottom: 40px;
+    justify-content: start;
+}
+
+.frame .card-contato1, .frame .card-contato2 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    justify-content: center;
+}
+
+.frame .imgContato {
+    height: 80px;
+    width: 80px;
+}
+
+.frame .text-perguntas {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.frame .text-wrapper-3 {
+    color: #ffffff;
+    font-family: "Poppins-ExtraLight", Helvetica, sans-serif;
+    font-size: 16px;
+    background-color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.frame .text-wrapper-3:hover {
+    background-color: #555;
+}
+
+.frame .maps {
+    height: 614px;
+    width: 100%;
+    max-width: 1707px;
+    object-fit: cover;
+    margin: 50px auto;
+}
+
+.footer {
+    background-color: #63131b;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
