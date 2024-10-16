@@ -3,7 +3,7 @@ import PaginaIncial from "./Pages/Pagina-Inicial/Pagina-Inicial.jsx"
 import PaginaAcomodacoes from './Pages/Pagina-Acomodações/Pagina-acomodações.jsx'
 import PaginaDomo from './Pages/Pagina-Dome/Pagina-Dome.jsx'
 
-
+/// teste
 function App() {
  return (
     <BrowserRouter>
