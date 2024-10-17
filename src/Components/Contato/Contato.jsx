@@ -19,7 +19,7 @@ export const Contato = () => {
                 <div className="text-perguntas">
                     <h2>Perguntas Frequentes</h2>
                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <button className="button">Ver perguntas</button>
+                    <button className="button">VER PERGUNTAS</button>
                 </div>
             </div>
             <div className="card-contato2">
@@ -27,7 +27,7 @@ export const Contato = () => {
                 <div className="text-perguntas">
                     <h2>Fale com a gente</h2>
                     <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                    <button className="button">Entre em contato</button>
+                    <button className="button">ENTRE EM CONTATO</button>
                 </div>
                 </div>
         </div>
