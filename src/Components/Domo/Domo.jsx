@@ -54,12 +54,7 @@ export const Domo = () => {
           <option value={2}>2 hóspedes</option>
           <option value={3}>3 hóspedes</option>
         </select>
-        <button onClick={handleReservation}>FAZER RESERVA</button>
-      </div>
-
-      {/* Link para outras páginas */}
-      <div className="navigation-links">
-        <Link to="/">Voltar para Home</Link>
+        <button onClick={handleReservation} className="fazerReserva">FAZER RESERVA</button>
       </div>
     </div>
   );

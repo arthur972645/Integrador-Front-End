@@ -21,6 +21,7 @@ const Navbar = () => {
                 <div className='Box-perfil'>
                     <button className='btn-user'>
                         <LuUser className='icon' />
+                        
                     </button>
                 </div>
             </div>

@@ -21,10 +21,9 @@
   }
   
   .main-image {
-    width: 1100;
+    width: 1100px;
     border-radius: 10px;
     height: 697px;
-    
   }
   
   .small-images {
@@ -32,16 +31,13 @@
     flex-direction: column;
     justify-content: space-between;
     flex: 1;
-    
-
   }
   
   .small-images img {
-    width: 100%;
-    margin-bottom: 10px;
-    border-radius: 10px;
     width: 312px;
     height: 220px;
+    margin-bottom: 10px;
+    border-radius: 10px;
   }
   
   .reservation-section {
@@ -55,6 +51,8 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 527px;
+    height: 396px;
   }
   
   .reservation-form h2 {
@@ -78,13 +76,14 @@
   }
   
   .reservation-form button {
-    width: 100%;
+    width: 457px;
+    height: 48px;
     padding: 15px;
     margin-top: 20px;
     background-color: #7E2726;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 7px;
     font-size: 16px;
     cursor: pointer;
   }
