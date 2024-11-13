@@ -102,3 +102,19 @@
 .footer a:hover {
     text-decoration: underline;
 }
+.frame .button {
+    background-color: #000;
+    color: #ffffff;
+    border-radius:9px;
+    width: 197px;
+    height: 47px;
+    font-weight: bold;
+}
+.frame .text-perguntas h2{
+    font-weight: lighter;
+    
+}
+.frame .text-perguntas p{
+    font-weight: lighter;
+    
+}
