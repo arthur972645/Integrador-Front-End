@@ -1,0 +1,113 @@
+.login{
+  /* border: 2px solid red; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+.box-imagem-logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.box-login{
+  /* border: 2px solid red; */
+  height: 500px;
+  width: 500px;
+  padding: 20px 30px 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 0px 31.7px -13px rgba(0,0,0,0.75);
+}
+.box-palavra-login{
+  /* border: 2px solid red; */
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+.box-palavra-login h1{
+  font-size: 30px;
+  font-weight: 500;
+  background-color: #fff;
+}
+.box-campos{
+  padding-top: 20px;
+  background-color: #fff;
+}
+.box-email, .box-senha{
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+.box-email label, .box-senha label{
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.518);
+  font-weight: 500;
+  background-color: #fff;
+}
+.box-email input, .box-senha input{
+  height: 40px;
+  padding-left: 10px;
+  border-radius: 8px;
+  border: 2px solid #C6C6C6;
+  background-color: #fff;
+}
+.box-email input:focus{
+  border: 2px solid #C6C6C6;
+  outline: none;
+}
+.box-senha input{
+  width: 94%;
+}
+.eye-icon{
+  /* border: 2px solid red; */
+  margin-left: 5px;
+  /* border: 2px solid red; */
+}
+.Icone-olho{
+  font-size: 18px;
+}
+.box-senha input:focus{
+  border: 2px solid #C6C6C6;
+  outline: none; 
+}
+.box-senha{
+  padding-top: 20px;
+  /* border: 2px solid red; */
+}
+
+.box-botao{
+  /* border: 2px solid red; */
+  margin-top: 20px;
+}
+.butao{
+  width: 100%;
+  height: 40px;
+  border: none;
+  background-color: #7D2626;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.input-error {
+  border: 2px solid red;
+}
+
+.error-message {
+  color: red;
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+.box-campos {
+  margin-top: 20px;
+}
