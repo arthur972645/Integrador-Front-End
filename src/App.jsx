@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route path='/Login' element={<PaginaLoginDashebord/>}></Route>
         <Route path='/Home' element={<PaginaInicialDashebord/>}></Route>
-        <Route path='/Reserva' element={<PaginaReservaDashebord/>}></Route>
+        <Route path='/reservas' element={<PaginaReservaDashebord/>}></Route>
       
       </Routes>
     </BrowserRouter>
