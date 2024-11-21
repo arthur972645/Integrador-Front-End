@@ -15,29 +15,16 @@ const CenteredNavbar = styled(Navbar)`
   margin-top: 10px;
 `;
 
-const StyledNavLink = styled(RouterNavLink)` 
-  color: #6c757d;
-  font-size: 1.1rem;
-  text-decoration: none; /* Remove sublinhado */
-  padding: 5px 10px;
-  border-radius: 5px;
-
-  &.active {
-    color: #343a40; /* Texto claro */
-  }
-
-  &:hover {
-    color: #343a40;
-  }
+const TextoboasVindas = styled(Nav)`
+  font-size: 18px;
 `;
+const SessaoTextoBoasVindas = styled.div`
 
-const Caminhos = styled(Nav)`
-  width: 40%;
-  display: flex;
-  justify-content: space-around;
-`;
+`
 
 const CenteredContainer = styled(Container)`
+
+  width: 60%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,17 +46,9 @@ function ColorSchemesExample() {
           <Navbar.Brand href="/">
             <ImagemLogo src={logo} alt="Logo" />
           </Navbar.Brand>
-          <Caminhos>
-            <StyledNavLink to="/dashboard" className={location.pathname === "/dashboard" ? "active" : ""}>
-              Dashboard
-            </StyledNavLink>
-            <StyledNavLink to="/reservas" className={location.pathname === "/reservas" ? "active" : ""}>
-              Reservas
-            </StyledNavLink>
-            <StyledNavLink to="/financeiro" className={location.pathname === "/financeiro" ? "active" : ""}>
-              Financeiro
-            </StyledNavLink>
-          </Caminhos>
+          <SessaoTextoBoasVindas>
+            <TextoboasVindas>Bem-vindo ao gerenciador do quinta de Yapuã</TextoboasVindas>
+          </SessaoTextoBoasVindas>
         </CenteredContainer>
       </CenteredNavbar>
     </>

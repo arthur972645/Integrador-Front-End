@@ -1,6 +1,15 @@
+import ReservaDashebord from "../../Components/ReservaDashebord/ResrevaDashebord"
+import Navbar from "../../Components/NavbarDashebord/NavbarDashebord.jsx"
+import LucoMensal from "../../Components/LucroMensalFinanceiroDashebord/LucroMensalFinanceiroDashebord.jsx"
+
 const PaginaInicialDashebord = () => {
   return(
-    <h1> oioioi</h1>
+    <>
+    <Navbar/>
+    <ReservaDashebord/>
+    <LucoMensal/>
+    </>
+      
   )
 }
 export default PaginaInicialDashebord
