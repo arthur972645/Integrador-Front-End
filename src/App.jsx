@@ -1,21 +1,25 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import PaginaIncial from "./Pages/Pagina-Inicial/Pagina-Inicial.jsx"
-import PaginaAcomodacoes from './Pages/Pagina-Acomodações/Pagina-acomodações.jsx'
-import PaginaDomo from './Pages/Pagina-Dome/Pagina-Dome.jsx'
-
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import PaginaLoginDashebord from './Pages/Pagina-Login-Dashebord/Pagin-Login-Dashebord.jsx';
+import PaginaInicialDashebord from "./Pages/Pagina-Inicial-Dashebord/Pagian-Incial-Dashebord.jsx";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
- return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<PaginaIncial/>}></Route>  
-        <Route path='/Acomodacoes' element={<PaginaAcomodacoes/>}></Route>
-        <Route path='acomodacao/Domo' element={<PaginaDomo/>}></Route>
-        
-        
-      </Routes>
-    </BrowserRouter>
-  )
-} //aeerton
+  const location = useLocation(); // Necessário para que as animações detectem as mudanças de rota.
 
-export default App
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PaginaLoginDashebord />} />
+        <Route path="/dashebord" element={<PaginaInicialDashebord />} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
+export default function RootApp() {
+  return (
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+}
