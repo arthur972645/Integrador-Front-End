@@ -24,9 +24,9 @@ const LoginDashebord = () => {
     setUserError("");
     setPasswordError("");
     setErrorField("");
-
+  
     let isError = false;
-
+  
     if (!email && !senha) {
       setUserError("Dados obrigatórios");
       setPasswordError("Dados obrigatórios");
@@ -38,18 +38,18 @@ const LoginDashebord = () => {
         setErrorField("email");
         isError = true;
       }
-
+  
       if (!senha) {
         setPasswordError("Dados obrigatórios");
         setErrorField("senha");
         isError = true;
       }
     }
-
+  
     if (isError) return;
-
+  
     const user = validUsers.find((user) => user.email === email);
-
+  
     if (!user) {
       setUserError("Usuário incorreto");
       setErrorField("email");
@@ -57,9 +57,11 @@ const LoginDashebord = () => {
       setPasswordError("Senha incorreta");
       setErrorField("senha");
     } else {
-      setTimeout(() => navigate("/dashebord"), 500); // Redireciona após 500ms para finalizar a animação
+      // Delay para permitir a animação de saída
+      setTimeout(() => navigate("/dashebord"), 500); // Redireciona após 500ms
     }
   };
+  
 
   return (
     <motion.div
