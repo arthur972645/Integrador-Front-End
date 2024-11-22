@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const EstilizacaoSessaoBusca = styled.div`
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 `;
 
 const InputBusca = styled.input`
@@ -29,77 +31,105 @@ const BotaoBuscar = styled.button`
   }
 `;
 
-const BuscaReservas = ({ reservas, setResultados, setLoading, setBuscou }) => {
-  const [dia, setDia] = useState('');
-  const [mes, setMes] = useState('');
-  const [ano, setAno] = useState('');
-  const [cpf, setCpf] = useState('');
+const ErroMensagem = styled.p`
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+`;
 
-  const buscarReservas = () => {
+const BuscarReservas = ({ setResultados, setLoading, setBuscou }) => {
+  const [cpf, setCpf] = useState('');
+  const [diaInicio, setDiaInicio] = useState('');
+  const [diaFim, setDiaFim] = useState('');
+  const [mensagemErro, setMensagemErro] = useState('');  // Estado para mensagem de erro
+
+  // Função para verificar se é um CPF válido
+  const validarCpf = (cpf) => {
+    // Validação de CPF com expressão regular
+    const regexCpf = /^[0-9]{11}$/;  // O CPF deve ter exatamente 11 números
+    return regexCpf.test(cpf);  // Retorna true ou false
+  };
+
+  const buscarReservas = async () => {
     setLoading(true);
     setBuscou(true);
+    setMensagemErro('');  // Limpar mensagem de erro antes de uma nova busca
 
-    let reservasFiltradas = reservas;
+    // Verificar se CPF está no formato correto
+    if (validarCpf(cpf)) {
+      try {
+        // Remover qualquer caractere não numérico do CPF
+        const cpfNumerico = cpf.replace(/\D/g, ''); 
 
-    // Filtro por CPF prioritário
-    if (cpf) {
-      reservasFiltradas = reservasFiltradas.filter((reserva) =>
-        reserva.cpf.includes(cpf)
-      );
-    }
-
-    // Filtros por data (se não for pesquisar por CPF)
-    if (!cpf && ano) {
-      if (dia && mes) {
-        const dataSelecionada = `${ano}-${mes.padStart(2, '0')}-${dia.padStart(2, '0')}`;
-        reservasFiltradas = reservasFiltradas.filter(
-          (reserva) => reserva.checkin === dataSelecionada
-        );
-      } else if (mes) {
-        reservasFiltradas = reservasFiltradas.filter((reserva) => {
-          const [resAno, resMes] = reserva.checkin.split('-');
-          return resAno === ano && resMes === mes.padStart(2, '0');
+        // Requisição à API com o CPF válido
+        const response = await axios.get(`http://localhost:3333/usuarios/cpf`, {
+          params: { cpf: cpfNumerico },  // Enviar o CPF no formato numérico
         });
-      } else {
-        reservasFiltradas = reservasFiltradas.filter((reserva) =>
-          reserva.checkin.startsWith(ano)
-        );
+        
+        if (response.data) {
+          setResultados(response.data);  // Exibir os dados do usuário
+        } else {
+          setMensagemErro('Nenhum usuário encontrado com esse CPF.');
+          setResultados([]);  // Limpar os resultados se não encontrar o usuário
+        }
+      } catch (error) {
+        console.error("Erro ao buscar o usuário:", error);
+        setMensagemErro("Ocorreu um erro ao buscar o CPF.");
+        setResultados([]);
+      } finally {
+        setLoading(false);
       }
-    }
+    } else if (diaInicio && diaFim) {
+      // Se não for CPF, mas houver datas, faz a busca por datas
+      try {
+        const response = await axios.get('http://localhost:3333/usuarios', {
+          params: {
+            initial: diaInicio,
+            final: diaFim,
+          },
+        });
 
-    setResultados(reservasFiltradas);
-    setLoading(false);
+        setResultados(response.data);
+      } catch (error) {
+        console.error("Erro ao buscar reservas:", error);
+        setResultados([]);
+        setMensagemErro('Ocorreu um erro ao buscar as reservas.');
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      // Se não for CPF válido nem houver datas, exibe uma mensagem de erro
+      setMensagemErro("Por favor, insira um CPF válido ou um intervalo de datas.");
+      setResultados([]);  // Limpar os resultados em caso de erro
+      setLoading(false);
+    }
   };
 
   return (
     <EstilizacaoSessaoBusca>
       <InputBusca
         type="text"
-        placeholder="CPF"
+        placeholder="Digite o CPF"
         value={cpf}
         onChange={(e) => setCpf(e.target.value)}
       />
       <InputBusca
-        type="number"
-        placeholder="Dia"
-        value={dia}
-        onChange={(e) => setDia(e.target.value)}
+        type="date"
+        placeholder="Data Início"
+        value={diaInicio}
+        onChange={(e) => setDiaInicio(e.target.value)}
       />
       <InputBusca
-        type="number"
-        placeholder="Mês"
-        value={mes}
-        onChange={(e) => setMes(e.target.value)}
-      />
-      <InputBusca
-        type="number"
-        placeholder="Ano"
-        value={ano}
-        onChange={(e) => setAno(e.target.value)}
+        type="date"
+        placeholder="Data Fim"
+        value={diaFim}
+        onChange={(e) => setDiaFim(e.target.value)}
       />
       <BotaoBuscar onClick={buscarReservas}>Buscar</BotaoBuscar>
+
+      {mensagemErro && <ErroMensagem>{mensagemErro}</ErroMensagem>} {/* Exibe a mensagem de erro */}
     </EstilizacaoSessaoBusca>
   );
 };
 
-export default BuscaReservas;
+export default BuscarReservas;
