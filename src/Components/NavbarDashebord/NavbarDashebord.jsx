@@ -13,6 +13,14 @@ const CenteredNavbar = styled(Navbar)`
   align-items: center;
   height: 100px;
   margin-top: 10px;
+  @media (max-width: 768px) {
+    height: 80px; 
+    margin-top: 5px;
+  }
+
+  @media (max-width: 480px) {
+    height: 60px;  
+  }
 `;
 
 const TextoboasVindas = styled(Nav)`
@@ -29,6 +37,14 @@ const CenteredContainer = styled(Container)`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+
+  @media (max-width: 480px) {
+    width: 90%; 
+  }
+
 `;
 
 const ImagemLogo = styled.img`
