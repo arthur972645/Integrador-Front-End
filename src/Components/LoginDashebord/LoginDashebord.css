@@ -111,3 +111,44 @@
 .box-campos {
   margin-top: 20px;
 }
+
+@media (max-width: 768px) {
+  .box-login {
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  .box-palavra-login h1 {
+    font-size: 24px;
+  }
+
+  .box-email input, .box-senha input {
+    height: 35px;
+  }
+
+  .butao {
+    font-size: 16px;
+  }
+}
+
+/* Para telas médias, como tablets */
+@media (max-width: 1024px) {
+  .box-login {
+    width: 100%;
+    max-width: 450px;
+  }
+  
+  .box-palavra-login h1 {
+    font-size: 28px;
+  }
+
+  .box-email input, .box-senha input {
+    height: 38px;
+  }
+
+  .butao {
+    font-size: 17px;
+  }
+}
+
