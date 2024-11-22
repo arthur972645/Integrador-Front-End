@@ -1,34 +1,32 @@
 import React, { useState } from "react";
 import "./LoginDashebord.css";
 import ImagemLogo from "../../Image/Imgem-logo.png";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; // Importando ícones de olho
+import { FaEye, FaEyeSlash } from "react-icons/fa"; 
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const LoginDashebord = () => {
-  // Dados fictícios de usuários e senhas (simulando um banco de dados)
+  const navigate = useNavigate();
   const validUsers = [
     { email: "usuario1@example.com", senha: "senha123" },
     { email: "usuario2@example.com", senha: "senha456" },
-    { email: "usuario3@example.com", senha: "senha789" }
+    { email: "usuario3@example.com", senha: "senha789" },
   ];
 
-  // Estados para os campos de email, senha e mensagens de erro
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [userError, setUserError] = useState(""); // Mensagem de erro do usuário
-  const [passwordError, setPasswordError] = useState(""); // Mensagem de erro da senha
-  const [errorField, setErrorField] = useState(""); // Qual campo está com erro
-  const [passwordVisible, setPasswordVisible] = useState(false); // Estado para alternar a visibilidade da senha
+  const [userError, setUserError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [errorField, setErrorField] = useState("");
+  const [passwordVisible, setPasswordVisible] = useState(false);
 
-  // Função de login
   const handleLogin = () => {
-    // Resetando mensagens de erro
     setUserError("");
     setPasswordError("");
     setErrorField("");
 
     let isError = false;
 
-    // Verifica se os campos estão vazios
     if (!email && !senha) {
       setUserError("Dados obrigatórios");
       setPasswordError("Dados obrigatórios");
@@ -48,10 +46,8 @@ const LoginDashebord = () => {
       }
     }
 
-    // Se houver erro, não prossegue
     if (isError) return;
 
-    // Verificação se os dados do usuário e senha estão corretos
     const user = validUsers.find((user) => user.email === email);
 
     if (!user) {
@@ -61,13 +57,18 @@ const LoginDashebord = () => {
       setPasswordError("Senha incorreta");
       setErrorField("senha");
     } else {
-      // Redireciona para a próxima página sem alert
-      window.location.href = "/pagina-proxima";
+      setTimeout(() => navigate("/dashebord"), 500); // Redireciona após 500ms para finalizar a animação
     }
   };
 
   return (
-    <article className="login">
+    <motion.div
+      className="login"
+      initial={{ opacity: 0, x: -100 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 100 }}
+      transition={{ duration: 1 }}
+    >
       <div className="box-imagem-logo">
         <img src={ImagemLogo} alt="Imagem da logo da marca" />
       </div>
@@ -87,7 +88,7 @@ const LoginDashebord = () => {
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
-                  setUserError(""); // Remove mensagem de erro ao digitar
+                  setUserError("");
                 }}
                 className={errorField === "email" || errorField === "both" ? "input-error" : ""}
               />
@@ -99,21 +100,21 @@ const LoginDashebord = () => {
               <label htmlFor="senha">Senha:</label>
               <div className="senha-container">
                 <input
-                  type={passwordVisible ? "text" : "password"} // Alterna entre 'text' e 'password'
+                  type={passwordVisible ? "text" : "password"}
                   name="senha"
                   id="senha"
                   value={senha}
                   onChange={(e) => {
                     setSenha(e.target.value);
-                    setPasswordError(""); // Remove mensagem de erro ao digitar
+                    setPasswordError("");
                   }}
                   className={errorField === "senha" || errorField === "both" ? "input-error" : ""}
                 />
                 <span
                   className="eye-icon"
-                  onClick={() => setPasswordVisible(!passwordVisible)} // Alterna a visibilidade da senha
+                  onClick={() => setPasswordVisible(!passwordVisible)}
                 >
-                  {passwordVisible ? <FaEyeSlash  className="Icone-olho" /> : <FaEye  className="Icone-olho"/>} {/* Exibe o ícone de olho */}
+                  {passwordVisible ? <FaEyeSlash className="Icone-olho" /> : <FaEye className="Icone-olho" />}
                 </span>
               </div>
               {passwordError && errorField === "senha" && (
@@ -121,12 +122,14 @@ const LoginDashebord = () => {
               )}
             </div>
             <div className="box-botao">
-              <button className="butao" onClick={handleLogin}>Login</button>
+              <button className="butao" onClick={handleLogin}>
+                Login
+              </button>
             </div>
           </div>
         </div>
       </section>
-    </article>
+    </motion.div>
   );
 };
 

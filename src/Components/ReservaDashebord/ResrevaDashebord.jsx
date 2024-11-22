@@ -139,7 +139,7 @@ const ReservaDashboard = () => {
           <BuscaReservas
             reservas={reservas}
             setResultados={setResultados}
-            setLoading={setLoading}
+            setLoading={setLoading}ReservaDashboard
             setBuscou={setBuscou}
           />
 
