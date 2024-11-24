@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import moment from 'moment';
 import axios from 'axios';
 import BuscaReservas from '../BuscaReservaDashebord/BuscaReservaDashebord.jsx';
 import TextoInformativo from "../../Components/TextoInformativo/TextoInformativo.jsx";
 
 const SessaoReservas = styled.section`
+
   height: 60vh;
   display: flex;
   justify-content: center;
@@ -22,8 +24,8 @@ const SessaoReservas = styled.section`
 const BoxReservas = styled.div`
   height: 90%;
   width: 60%;
-  border-radius: 40px;
-  box-shadow: 0px 0px 35px -8px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   display: flex;
   justify-content: center;
@@ -43,7 +45,7 @@ const BoxReservas = styled.div`
 const Reservas = styled.div`
   height: 100%;
   width: 100%;
-  border-radius: 40px;
+  border-radius: 20px;
   background-color: #F6F8FA;
   overflow-y: auto;
   padding: 20px;
@@ -68,22 +70,34 @@ const ResultadoBusca = styled.div`
   }
 `;
 
-const ResultadoItem = styled.div`
-  margin-bottom: 10px;
-  padding: 10px;
+const Tabela = styled.table`
+  width: 100%;
+  border-collapse: collapse;
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  @media (max-width: 768px) {
-    padding: 8px;
-  }
-  @media (max-width: 480px) {
-    padding: 5px; 
-  }
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
 `;
 
-const EstilizacaoParagrafo = styled.p`
-  background-color: #fff;
+const Th = styled.th`
+  padding: 12px;
+  background-color: #f4f6f9;
+  color: #333;
+  font-size: 14px;
+  text-align: left;
+  font-weight: 500;
+  border-bottom: 2px solid #e0e0e0;
+  letter-spacing: 0.5px;
+`;
+
+const Td = styled.td`
+  padding: 12px;
+  font-size: 14px;
+  color: #555;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 `;
 
 const ReservaDashboard = () => {
@@ -91,30 +105,6 @@ const ReservaDashboard = () => {
   const [loading, setLoading] = useState(false);
   const [buscou, setBuscou] = useState(false);
 
-  const buscarReservasAPI = async (initial, final) => {
-    setLoading(true);
-    try {
-      // Fazendo uma requisição POST com as datas de início e fim
-      const response = await axios.get('http://localhost:3333/usuarios', {
-        params     : {
-        initial: initial,  // Data de início
-        final: final  
-        }      // Data de fim
-      });
-      
-      // Atualizando os resultados com a resposta da API
-      setResultados(response.data);
-      setBuscou(true);  
-    } catch (error) {
-      console.error("Erro ao buscar reservas:", error);
-    } finally {
-      setLoading(false);  
-    }
-  };
-  
-  useEffect(() => {
-    buscarReservasAPI();
-  }, []);
 
   return (
     <>
@@ -128,33 +118,59 @@ const ReservaDashboard = () => {
                 setLoading={setLoading}
                 setBuscou={setBuscou}
               />
+              
 
             {loading ? (
               <div>Carregando...</div>
             ) : (
               <ResultadoBusca>
-      
-              {resultados.valortotal > 0 ? (
-                resultados.ListaDeUsers.map((reserva, index) => (
-                  <ResultadoItem key={index}>
-                    <EstilizacaoParagrafo>Nome: {reserva.nome}</EstilizacaoParagrafo>
-                    <EstilizacaoParagrafo>CPF: {reserva.cpf}</EstilizacaoParagrafo>
-                    <EstilizacaoParagrafo>Email: {reserva.email}</EstilizacaoParagrafo>
-                    <EstilizacaoParagrafo>Hospedagem: {reserva.hospedagem}</EstilizacaoParagrafo>
-                    <EstilizacaoParagrafo>Preço Pago: {reserva.valor}</EstilizacaoParagrafo> {/* Aqui é o valor, não preco */}
-                    <EstilizacaoParagrafo>Check-in: {new Date(reserva.checkin).toLocaleDateString()}</EstilizacaoParagrafo> {/* Formatação de data */}
-                    <EstilizacaoParagrafo>Check-out: {new Date(reserva.checkout).toLocaleDateString()}</EstilizacaoParagrafo> {/* Formatação de data */}
-                  </ResultadoItem>
-                ))
-              ) : buscou ? (
-                
-                <p>Nenhuma reserva foi encontrada para essa data</p>
-              ) : (
-                <p>Pesquise uma reserva</p>
-              )}
-                    
-            </ResultadoBusca>
-            
+                {resultados.valortotal > 0 ? (
+                  <Tabela>
+                    <thead>
+                      <tr>
+                        <Th>Nome</Th>
+                        <Th>CPF</Th>
+                        <Th>Email</Th>
+                        <Th>Hospedagem</Th>
+                        <Th>Preço Pago</Th>
+                        <Th>Check-in</Th>
+                        <Th>Check-out</Th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {resultados.ListaDeUsers.map((reserva, index) => {
+                        // Passo 1: Incrementar o checkin e checkout em 1 dia
+                        console.log(reserva);
+                        const checkin = new Date(reserva.checkin);
+                        checkin.setDate(checkin.getDate() + 1);  // Incrementa 1 dia no checkin
+
+                        const checkout = new Date(reserva.checkout);
+                        checkout.setDate(checkout.getDate() + 1);  // Incrementa 1 dia no checkout
+                        
+                        // Formatar as datas para o formato 'YYYY-MM-DD'
+                        const checkinFormatted = checkin.toISOString().split('T')[0];
+                        const checkoutFormatted = checkout.toISOString().split('T')[0];
+                        
+                        return (
+                          <tr key={index}>
+                            <Td>{reserva.nome}</Td>
+                            <Td>{reserva.cpf}</Td>
+                            <Td>{reserva.email}</Td>
+                            <Td>{reserva.hospedagem}</Td>
+                            <Td>{reserva.valor}</Td>
+                            <Td>{checkinFormatted}</Td> {/* Exibindo o checkin formatado */}
+                            <Td>{checkoutFormatted}</Td> {/* Exibindo o checkout formatado */}
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </Tabela>
+                ) : buscou ? (
+                  <p>Nenhuma reserva foi encontrada para essa data</p>
+                ) : (
+                  <p>Pesquise uma reserva</p>
+                )}
+              </ResultadoBusca>
             )}
           </Reservas>
         </BoxReservas>

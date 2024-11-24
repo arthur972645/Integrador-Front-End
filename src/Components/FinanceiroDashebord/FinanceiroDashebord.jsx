@@ -1,13 +1,10 @@
+import styled from "styled-components";
+import TextoInformativo from "../TextoInformativo/TextoInformativo.jsx";
+import LucroPorPeriodo from "../LucroPorPeriodo/LucroPorPeriodo.jsx";
 
-import styled from 'styled-components';
-import TextoInformativo from '../../Components/TextoInformativo/TextoInformativo.jsx';
-
-const SessaoReservas = styled.section`
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  padding-top: 2rem;
+const SessaoFinanciero1 = styled.section`
+  border: 2px solid red;
+  height: 40vh;
 `;
 
 const BoxReservas = styled.div`
@@ -26,7 +23,7 @@ const Reservas = styled.div`
   height: 100%;
   width: 100%;
   border-radius: 40px;
-  background-color: #F6F8FA;
+  background-color: #f6f8fa;
   overflow-y: auto;
   padding: 20px;
 `;
@@ -49,27 +46,16 @@ const EstilizacaoParagrafo = styled.p`
   background-color: #fff;
 `;
 
-const LucoMensal = () => {
-  
-
-
+const Financeiro = () => {
   return (
     <>
-    <TextoInformativo Informacao="Financeiro"/>
-      <SessaoReservas>
-        <BoxReservas>
-          <Reservas>
-
-          </Reservas>
-        </BoxReservas>
-      </SessaoReservas>
+      <TextoInformativo Informacao="Financeiro" />
+      <SessaoFinanciero1>
+        <LucroPorPeriodo />
+      </SessaoFinanciero1>
+      
     </>
-    
   );
 };
 
-export default LucoMensal;
-
-
-
-
+export default Financeiro;
