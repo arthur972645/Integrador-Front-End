@@ -41,36 +41,36 @@ const BuscarReservas = ({ setResultados, setLoading, setBuscou }) => {
   const [cpf, setCpf] = useState('');
   const [diaInicio, setDiaInicio] = useState('');
   const [diaFim, setDiaFim] = useState('');
-  const [mensagemErro, setMensagemErro] = useState('');  // Estado para mensagem de erro
+  const [mensagemErro, setMensagemErro] = useState(''); 
 
-  // Função para verificar se é um CPF válido
+  
   const validarCpf = (cpf) => {
-    // Validação de CPF com expressão regular
-    const regexCpf = /^[0-9]{11}$/;  // O CPF deve ter exatamente 11 números
-    return regexCpf.test(cpf);  // Retorna true ou false
+    
+    const regexCpf = /^[0-9]{11}$/;  
+    return regexCpf.test(cpf);  
   };
 
   const buscarReservas = async () => {
     setLoading(true);
     setBuscou(true);
-    setMensagemErro('');  // Limpar mensagem de erro antes de uma nova busca
+    setMensagemErro('');  
 
-    // Verificar se CPF está no formato correto
+    
     if (validarCpf(cpf)) {
       try {
-        // Remover qualquer caractere não numérico do CPF
+       
         const cpfNumerico = cpf.replace(/\D/g, ''); 
 
-        // Requisição à API com o CPF válido
+        
         const response = await axios.get(`http://localhost:3333/usuarios/cpf`, {
-          params: { cpf: cpfNumerico },  // Enviar o CPF no formato numérico
+          params: { cpf: cpfNumerico },  
         });
         
         if (response.data) {
-          setResultados(response.data);  // Exibir os dados do usuário
+          setResultados(response.data);  
         } else {
           setMensagemErro('Nenhum usuário encontrado com esse CPF.');
-          setResultados([]);  // Limpar os resultados se não encontrar o usuário
+          setResultados([]); 
         }
       } catch (error) {
         console.error("Erro ao buscar o usuário:", error);
@@ -80,7 +80,7 @@ const BuscarReservas = ({ setResultados, setLoading, setBuscou }) => {
         setLoading(false);
       }
     } else if (diaInicio && diaFim) {
-      // Se não for CPF, mas houver datas, faz a busca por datas
+      
       try {
         const response = await axios.get('http://localhost:3333/usuarios', {
           params: {
@@ -98,9 +98,9 @@ const BuscarReservas = ({ setResultados, setLoading, setBuscou }) => {
         setLoading(false);
       }
     } else {
-      // Se não for CPF válido nem houver datas, exibe uma mensagem de erro
+     
       setMensagemErro("Por favor, insira um CPF válido ou um intervalo de datas.");
-      setResultados([]);  // Limpar os resultados em caso de erro
+      setResultados([]);  
       setLoading(false);
     }
   };
@@ -127,7 +127,7 @@ const BuscarReservas = ({ setResultados, setLoading, setBuscou }) => {
       />
       <BotaoBuscar onClick={buscarReservas}>Buscar</BotaoBuscar>
 
-      {mensagemErro && <ErroMensagem>{mensagemErro}</ErroMensagem>} {/* Exibe a mensagem de erro */}
+      {mensagemErro && <ErroMensagem>{mensagemErro}</ErroMensagem>} 
     </EstilizacaoSessaoBusca>
   );
 };

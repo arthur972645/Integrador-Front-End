@@ -22,7 +22,7 @@ const SessaoReservas = styled.section`
 `;
 
 const BoxReservas = styled.div`
-  height: 90%;
+  height: 100%;
   width: 60%;
   border-radius: 20px;
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
@@ -30,7 +30,7 @@ const BoxReservas = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px;
+  padding: 15px;
 
   @media (max-width: 768px) {
     width: 80%; 
@@ -139,15 +139,15 @@ const ReservaDashboard = () => {
                     </thead>
                     <tbody>
                       {resultados.ListaDeUsers.map((reserva, index) => {
-                        // Passo 1: Incrementar o checkin e checkout em 1 dia
+                       
                         console.log(reserva);
                         const checkin = new Date(reserva.checkin);
-                        checkin.setDate(checkin.getDate() + 1);  // Incrementa 1 dia no checkin
+                        checkin.setDate(checkin.getDate() + 1);  
 
                         const checkout = new Date(reserva.checkout);
-                        checkout.setDate(checkout.getDate() + 1);  // Incrementa 1 dia no checkout
+                        checkout.setDate(checkout.getDate() + 1);  
                         
-                        // Formatar as datas para o formato 'YYYY-MM-DD'
+                        
                         const checkinFormatted = checkin.toISOString().split('T')[0];
                         const checkoutFormatted = checkout.toISOString().split('T')[0];
                         
@@ -158,8 +158,8 @@ const ReservaDashboard = () => {
                             <Td>{reserva.email}</Td>
                             <Td>{reserva.hospedagem}</Td>
                             <Td>{reserva.valor}</Td>
-                            <Td>{checkinFormatted}</Td> {/* Exibindo o checkin formatado */}
-                            <Td>{checkoutFormatted}</Td> {/* Exibindo o checkout formatado */}
+                            <Td>{checkinFormatted}</Td> 
+                            <Td>{checkoutFormatted}</Td> 
                           </tr>
                         );
                       })}

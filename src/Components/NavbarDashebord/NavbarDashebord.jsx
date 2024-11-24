@@ -1,12 +1,12 @@
 import React from 'react';
-import { NavLink as RouterNavLink, useLocation } from 'react-router-dom'; // Import do react-router-dom
+import { NavLink as RouterNavLink, useLocation } from 'react-router-dom'; 
 import styled from 'styled-components';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../Image/Imgem-logo.png';
 
-// Estilização usando styled-components
+
 const CenteredNavbar = styled(Navbar)`
   display: flex;
   justify-content: center;

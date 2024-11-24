@@ -4,7 +4,7 @@ import PaginaInicialDashebord from "./Pages/Pagina-Inicial-Dashebord/Pagian-Inci
 import { AnimatePresence } from "framer-motion";
 
 function App() {
-  const location = useLocation(); // Necessário para que as animações detectem as mudanças de rota.
+  const location = useLocation(); 
 
   return (
     <AnimatePresence mode="wait">

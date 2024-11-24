@@ -61,14 +61,14 @@ const BuscarValorTotal = ({ setResultados, setLoading, setBuscou, setValorTotal 
           },
         });
 
-        // Armazena o valor total
+       
         const valorTotalRecebido = response.data.valortotal;
-        setValorTotal(valorTotalRecebido); // Atualiza o valor total no estado
+        setValorTotal(valorTotalRecebido); 
 
-        // Atualiza os resultados
+       
         setResultados(response.data.ListaDeUsers);
 
-        // Verifica se há resultados
+       
         if (response.data.ListaDeUsers.length === 0) {
           setMensagemErro('Nenhum resultado encontrado para esse período.');
         }

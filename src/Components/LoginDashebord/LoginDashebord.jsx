@@ -58,7 +58,7 @@ const LoginDashebord = () => {
       setErrorField("senha");
     } else {
       // Delay para permitir a animação de saída
-      setTimeout(() => navigate("/dashebord"), 500); // Redireciona após 500ms
+      setTimeout(() => navigate("/dashebord"), 500); 
     }
   };
   
