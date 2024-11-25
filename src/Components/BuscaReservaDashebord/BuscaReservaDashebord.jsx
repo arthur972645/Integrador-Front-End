@@ -6,6 +6,20 @@ const EstilizacaoSessaoBusca = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  @media (max-width: 768px) {
+    display: inline;
+    padding-top: 5px;
+    
+  }
+
+  @media (max-width: 480px) {
+    display: inline;
+    padding-top: 5px;
+  }
+  @media (max-width: 1024px) {
+    display: inline;
+    padding-top: 5px;
+  }
 `;
 
 const InputBusca = styled.input`
@@ -15,19 +29,39 @@ const InputBusca = styled.input`
   font-size: 16px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  @media (max-width: 768px) {
+    width: 30%;
+  }
+
+  @media (max-width: 480px) {
+    width: 30%;
+  }
+  @media (max-width: 1024px) {
+    width: 30%;
+  }
 `;
 
 const BotaoBuscar = styled.button`
   padding: 10px 20px;
   font-size: 16px;
   background-color: #7D2626;
-  color: white;
+  color: #ffffff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 
   &:hover {
     background-color: #0056b3;
+  }
+  @media (max-width: 768px) {
+    margin-top: 10px;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 10px;
+  }
+  @media (max-width: 1024px) {
+    margin-top: 10px;
   }
 `;
 

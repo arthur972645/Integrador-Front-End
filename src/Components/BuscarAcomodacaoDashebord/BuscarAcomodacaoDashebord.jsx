@@ -6,6 +6,20 @@ const EstilizacaoSessaoBusca = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  @media (max-width: 768px) {
+    display: inline;
+    padding-top: 5px;
+    
+  }
+
+  @media (max-width: 480px) {
+    display: inline;
+    padding-top: 5px;
+  }
+  @media (max-width: 1024px) {
+    display: inline;
+    padding-top: 5px;
+  }
 `;
 
 const InputBusca = styled.input`
@@ -18,23 +32,32 @@ const InputBusca = styled.input`
   border: 1px solid #ccc;
 `;
 
-  const BotaoBuscar = styled.button`
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #7D2626;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+const BotaoBuscar = styled.button`
+  height: 35px;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 20px;
+  font-size: 16px;
+  background-color: #7D2626;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 
-    &:hover {
-      background-color: #0056b3;
-    }
-  `;
+  &:hover {
+    background-color: #0056b3;
+  }
+  @media (max-width: 768px) {
+    margin-top: 10px;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 10px;
+  }
+  @media (max-width: 1024px) {
+    margin-top: 10px;
+  }
+`;
 
 const ErroMensagem = styled.p`
   color: red;

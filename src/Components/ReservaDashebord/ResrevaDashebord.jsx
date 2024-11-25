@@ -79,7 +79,7 @@ const Tabela = styled.table`
   font-family: 'Roboto', sans-serif;
 `;
 
-const Th = styled.th`
+const NomeDasColunas = styled.th`
   padding: 12px;
   background-color: #f4f6f9;
   color: #333;
@@ -90,7 +90,7 @@ const Th = styled.th`
   letter-spacing: 0.5px;
 `;
 
-const Td = styled.td`
+const DadosDasColunas = styled.td`
   padding: 12px;
   font-size: 14px;
   color: #555;
@@ -98,6 +98,15 @@ const Td = styled.td`
   text-align: left;
   font-weight: 300;
   letter-spacing: 0.5px;
+`;
+
+const RegistroDasReservas = styled.p`
+    font-size: 18px;
+    font-weight: 500;
+`
+const LinhaHorizontal = styled.hr`
+  width: 100%;
+  border: 1px solid #ccc;
 `;
 
 const ReservaDashboard = () => {
@@ -112,6 +121,8 @@ const ReservaDashboard = () => {
       <SessaoReservas>
         <BoxReservas>
           <Reservas>
+            <RegistroDasReservas>Registro das Reservas</RegistroDasReservas>
+            <LinhaHorizontal />
             <BuscaReservas
                 reservas={resultados}
                 setResultados={setResultados}
@@ -128,13 +139,13 @@ const ReservaDashboard = () => {
                   <Tabela>
                     <thead>
                       <tr>
-                        <Th>Nome</Th>
-                        <Th>CPF</Th>
-                        <Th>Email</Th>
-                        <Th>Hospedagem</Th>
-                        <Th>Preço Pago</Th>
-                        <Th>Check-in</Th>
-                        <Th>Check-out</Th>
+                        <NomeDasColunas>Nome</NomeDasColunas>
+                        <NomeDasColunas>CPF</NomeDasColunas>
+                        <NomeDasColunas>Email</NomeDasColunas>
+                        <NomeDasColunas>Hospedagem</NomeDasColunas>
+                        <NomeDasColunas>Preço Pago</NomeDasColunas>
+                        <NomeDasColunas>Check-in</NomeDasColunas>
+                        <NomeDasColunas>Check-out</NomeDasColunas>
                       </tr>
                     </thead>
                     <tbody>
@@ -142,10 +153,10 @@ const ReservaDashboard = () => {
                        
                         console.log(reserva);
                         const checkin = new Date(reserva.checkin);
-                        checkin.setDate(checkin.getDate() + 1);  
+                        checkin.setDate(checkin.getDate() );  
 
                         const checkout = new Date(reserva.checkout);
-                        checkout.setDate(checkout.getDate() + 1);  
+                        checkout.setDate(checkout.getDate() );  
                         
                         
                         const checkinFormatted = checkin.toISOString().split('T')[0];
@@ -153,13 +164,13 @@ const ReservaDashboard = () => {
                         
                         return (
                           <tr key={index}>
-                            <Td>{reserva.nome}</Td>
-                            <Td>{reserva.cpf}</Td>
-                            <Td>{reserva.email}</Td>
-                            <Td>{reserva.hospedagem}</Td>
-                            <Td>{reserva.valor}</Td>
-                            <Td>{checkinFormatted}</Td> 
-                            <Td>{checkoutFormatted}</Td> 
+                            <DadosDasColunas>{reserva.nome}</DadosDasColunas>
+                            <DadosDasColunas>{reserva.cpf}</DadosDasColunas>
+                            <DadosDasColunas>{reserva.email}</DadosDasColunas>
+                            <DadosDasColunas>{reserva.hospedagem}</DadosDasColunas>
+                            <DadosDasColunas>{reserva.valor}</DadosDasColunas>
+                            <DadosDasColunas>{checkinFormatted}</DadosDasColunas> 
+                            <DadosDasColunas>{checkoutFormatted}</DadosDasColunas> 
                           </tr>
                         );
                       })}
