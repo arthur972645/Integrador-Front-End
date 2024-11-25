@@ -117,6 +117,15 @@ const EstilizacaoGrafico = styled.div`
   }
 `;
 
+const LucroPorPeriodoParagrafo = styled.p`
+  font-size: 18px;
+    font-weight: 500;
+`
+const LinhaHorizontal = styled.hr`
+  width: 100%;
+  border: 1px solid #ccc;
+`;
+
 
 
 const GraficoPorSetores = () => {
@@ -128,6 +137,8 @@ const GraficoPorSetores = () => {
       <BoxFinanceiroLucroGraficoSetores>
         <GraficoSetores>
           {loading && <p>Carregando...</p>}
+          <LucroPorPeriodoParagrafo>Gráfico das Acomodações</LucroPorPeriodoParagrafo>
+          <LinhaHorizontal />
           <BuscaGraficoAcomodacao
             setGraficoData={setGraficoData}
             setLoading={setLoading}

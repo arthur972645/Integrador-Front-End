@@ -98,6 +98,15 @@ const ValorTodal = styled.div`
     height: 50%;
   }
 `;
+const LucroPorPeriodoParagrafo = styled.p`
+  font-size: 18px;
+    font-weight: 500;
+`
+const LinhaHorizontal = styled.hr`
+  width: 100%;
+  border: 1px solid #ccc;
+`;
+
 
 
   const LucroPorPeriodo = () => {
@@ -110,7 +119,8 @@ const ValorTodal = styled.div`
       <SessaoFinanceiroLucro>
         <BoxFinanceiroLucro>
           <Lucro>
-           
+           <LucroPorPeriodoParagrafo>Lucro por periódo</LucroPorPeriodoParagrafo>
+           <LinhaHorizontal />
             <BuscarValorTotal
               setResultados={setResultados}
               setLoading={setLoading}
@@ -124,7 +134,7 @@ const ValorTodal = styled.div`
             
             {valorTotal !== null && (
               <ValorTodal>
-                <h3>Valor Total: R${valorTotal},00</h3>
+                <h2>Valor Total: R${valorTotal},00</h2>
               </ValorTodal>
             )}
           </Lucro>
