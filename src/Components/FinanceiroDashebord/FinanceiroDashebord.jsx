@@ -8,6 +8,16 @@ const SessaoFinanciero1 = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr; 
   gap: 0; 
+  @media (max-width: 768px) {
+    display: inline;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  @media (max-width: 480px) {
+    display: inline;
+    margin-bottom: 12px;
+    align-items: center;
+  }
 `;
 
 const Financeiro = () => {

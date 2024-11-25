@@ -25,6 +25,7 @@ const CenteredNavbar = styled(Navbar)`
 
 const TextoboasVindas = styled(Nav)`
   font-size: 18px;
+  padding-top: 12px;
 `;
 const SessaoTextoBoasVindas = styled.div`
 
@@ -50,6 +51,14 @@ const CenteredContainer = styled(Container)`
 const ImagemLogo = styled.img`
   font-size: 1.5rem;
   margin-right: 20px;
+  @media (max-width: 768px) {
+    width: 80%;
+  }
+
+  @media (max-width: 480px) {
+    width: 90%; 
+  }
+
 `;
 
 function ColorSchemesExample() {

@@ -35,7 +35,9 @@ const ErroMensagem = styled.p`
   color: red;
   font-size: 14px;
   margin-top: 10px;
+  padding-left: 5px;
 `;
+
 
 const BuscarReservas = ({ setResultados, setLoading, setBuscou }) => {
   const [cpf, setCpf] = useState('');

@@ -132,7 +132,6 @@
   }
 }
 
-/* Para telas médias, como tablets */
 @media (max-width: 1024px) {
   .box-login {
     width: 100%;
