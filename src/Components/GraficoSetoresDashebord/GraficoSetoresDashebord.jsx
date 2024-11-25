@@ -8,17 +8,33 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const SessaoFinanceiroLucroGraficoSetores = styled.section`
   height: 60vh;
   display: flex;
-  justify-content: start;
   align-items: center;
   padding-top: 2rem;
   padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 15px;
   
   @media (max-width: 768px) {
-    padding-left: 1rem;
-    flex-direction: column;
     height: auto;
     padding-top: 1rem;
+    align-items: center;
+   justify-content: center;
+  
   }
+  @media (max-width: 480px) {
+    height: auto;
+    padding-top: 1rem;
+    align-items: center;
+   justify-content: center;
+  
+  }
+  @media (max-width: 1024px) {
+    height: auto;
+    padding-top: 1rem;
+    align-items: center;
+   justify-content: center;
+  }
+  
 `;
 
 const BoxFinanceiroLucroGraficoSetores = styled.div`
@@ -36,6 +52,23 @@ const BoxFinanceiroLucroGraficoSetores = styled.div`
     width: 90%;
     height: auto;
     padding: 10px;
+    align-items: center;
+    justify-content: center;
+  
+  }
+  @media (max-width: 480px) {
+    width: 90%;
+    height: auto;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: 1024px) {
+    width: 70%;
+    height: auto;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;;
   }
 `;
 
@@ -48,7 +81,21 @@ const GraficoSetores = styled.div`
   
   @media (max-width: 768px) {
     padding: 15px;
+    align-items: center;
+  justify-content: center;
+  
   }
+  @media (max-width: 480px) {
+    padding: 15px;
+    align-items: center;
+  justify-content: center;
+  }
+  @media (max-width: 1024px) {
+    padding: 15px;
+    align-items: center;
+  justify-content: center;
+  }
+  
 `;
 
 const EstilizacaoGrafico = styled.div`
@@ -60,6 +107,12 @@ const EstilizacaoGrafico = styled.div`
   margin: auto;
   
   @media (max-width: 768px) {
+    height: 30vh;
+  }
+  @media (max-width: 480px) {
+    height: 30vh;
+  }
+  @media (max-width: 1024px) {
     height: 30vh;
   }
 `;

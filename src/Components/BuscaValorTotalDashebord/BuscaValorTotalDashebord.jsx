@@ -6,6 +6,21 @@ const EstilizacaoSessaoBusca = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  @media (max-width: 768px) {
+    display: inline;
+    padding-top: 5px;
+    
+  }
+
+  @media (max-width: 480px) {
+    display: inline;
+    padding-top: 5px;
+  }
+  @media (max-width: 1024px) {
+    margin-top: 10px;
+    display: inline;
+    padding-top: 5px;
+  }
 `;
 
 const InputBusca = styled.input`
@@ -34,6 +49,17 @@ const BotaoBuscar = styled.button`
   &:hover {
     background-color: #0056b3;
   }
+  @media (max-width: 768px) {
+    margin-top: 10px;
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 10px;
+  }
+  @media (max-width: 1024px) {
+    margin-top: 10px;
+  }
+  
 `;
 
 const ErroMensagem = styled.p`
@@ -61,6 +87,7 @@ const BuscarValorTotal = ({ setResultados, setLoading, setBuscou, setValorTotal 
           },
         });
 
+          console.log(response.data)
        
         const valorTotalRecebido = response.data.valortotal;
         setValorTotal(valorTotalRecebido); 

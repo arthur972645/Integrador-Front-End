@@ -3,20 +3,34 @@ import TextoInformativo from "../TextoInformativo/TextoInformativo.jsx";
 import LucroPorPeriodo from "../LucroPorPeriodo/LucroPorPeriodo.jsx";
 import GraficoSetoresDashebord from "../GraficoSetoresDashebord/GraficoSetoresDashebord.jsx";
 
-const SessaoFinanciero1 = styled.section`
-  height: 70vh;
+const SessaoFinanciero1 = styled.div`
+  height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr; 
-  gap: 0; 
+
   @media (max-width: 768px) {
     display: inline;
     align-items: center;
     margin-bottom: 12px;
+    justify-content: center;
+    gap: none;
+    grid-template-columns: none; 
   }
   @media (max-width: 480px) {
     display: inline;
     margin-bottom: 12px;
     align-items: center;
+    justify-content: center;
+    gap: none;
+    grid-template-columns: none; 
+  }
+  @media (max-width: 1024px) {
+    display: inline;
+    margin-bottom: 12px;
+    align-items: center;
+    justify-content: center;
+    gap: none;
+    grid-template-columns: none; 
   }
 `;
 

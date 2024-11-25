@@ -142,10 +142,10 @@ const ReservaDashboard = () => {
                        
                         console.log(reserva);
                         const checkin = new Date(reserva.checkin);
-                        checkin.setDate(checkin.getDate() + 1);  
+                        checkin.setDate(checkin.getDate() );  
 
                         const checkout = new Date(reserva.checkout);
-                        checkout.setDate(checkout.getDate() + 1);  
+                        checkout.setDate(checkout.getDate() );  
                         
                         
                         const checkinFormatted = checkin.toISOString().split('T')[0];
