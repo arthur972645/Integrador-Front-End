@@ -18,23 +18,23 @@ const InputBusca = styled.input`
   border: 1px solid #ccc;
 `;
 
-const BotaoBuscar = styled.button`
-  height: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #7D2626;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  const BotaoBuscar = styled.button`
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #7D2626;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
+    &:hover {
+      background-color: #0056b3;
+    }
+  `;
 
 const ErroMensagem = styled.p`
   color: red;

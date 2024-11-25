@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import ReservaDashebord from "../../Components/ReservaDashebord/ResrevaDashebord";
 import Navbar from "../../Components/NavbarDashebord/NavbarDashebord.jsx";
 import FinancieroDashebord from "../../Components/FinanceiroDashebord/FinanceiroDashebord.jsx";
+import FinanceiroGrafico from "../../Components/FinanceiroGrafico/FinanceiroGrafico.jsx";
+import Financeiro from "../../Components/FinanceiroDashebord/FinanceiroDashebord.jsx";
 
 const PaginaInicialDashebord = () => {
   return (
@@ -15,6 +17,7 @@ const PaginaInicialDashebord = () => {
       <Navbar />
       <ReservaDashebord />
       <FinancieroDashebord />
+      <FinanceiroGrafico/>
     </motion.div>
   );
 };
