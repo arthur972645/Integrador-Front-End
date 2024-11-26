@@ -68,6 +68,34 @@ const ErroMensagem = styled.p`
   margin-top: 10px;
 `;
 
+// Função para obter o nome do mês baseado no número do mês (1-12)
+function getMonthName(monthNumber) {
+  const months = [
+    "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", 
+    "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+  ];
+  return months[monthNumber - 1];
+}
+function getMonthRange(startDate, endDate) {
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+  const monthsData = [];
+  while (start <= end) {
+    const monthStart = new Date(start.getFullYear(), start.getMonth(), 1);
+    const monthEnd = new Date(start.getFullYear(), start.getMonth() + 1, 0);
+    if (monthStart > end) break;
+
+    monthsData.push({
+      month: getMonthName(start.getMonth() + 1), 
+      startDate: monthStart.toISOString().split('T')[0], 
+      endDate: (monthEnd > end ? end : monthEnd).toISOString().split('T')[0],  // formata e garante que não ultrapasse 'diaFim'
+    });
+    start.setMonth(start.getMonth() + 1); //gepeto ajudou fixar aq
+  }
+
+  return monthsData;
+}
+
 const BuscarValorTotal = ({ setResultados, setLoading, setBuscou, setValorTotal }) => {
   const [diaInicio, setDiaInicio] = useState('');
   const [diaFim, setDiaFim] = useState('');
@@ -79,15 +107,23 @@ const BuscarValorTotal = ({ setResultados, setLoading, setBuscou, setValorTotal 
     setMensagemErro('');
 
     if (diaInicio && diaFim) {
+      const monthsData = getMonthRange(diaInicio, diaFim);
+      const monthlyResults = {};
       try {
-        const response = await axios.get('http://localhost:3333/usuarios', {
-          params: {
-            initial: diaInicio,
-            final: diaFim,
-          },
-        });
-
-          console.log(response.data)
+  for (const { month, startDate, endDate } of monthsData) {
+   
+      const response = await axios.get('http://localhost:3333/usuarios', {
+        params: {
+          initial: startDate,
+          final: endDate,
+        },
+      });
+      
+      
+      monthlyResults[month] = response.data;
+    
+    }
+          console.log(monthlyResults)
        
         const valorTotalRecebido = response.data.valortotal;
         setValorTotal(valorTotalRecebido); 
