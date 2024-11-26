@@ -248,11 +248,12 @@ const CampoBox = styled.div`
 
 const SenhaContainer = styled.div`
   display: flex;
+  width: 105%;
   align-items: center;
   background-color: #fff;
 
   input {
-    width: 94%;
+    width: 100%;
   }
 `;
 

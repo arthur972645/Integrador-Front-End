@@ -72,7 +72,7 @@ function ColorSchemesExample() {
             <ImagemLogo src={logo} alt="Logo" />
           </Navbar.Brand>
           <SessaoTextoBoasVindas>
-            <TextoboasVindas>Bem-vindo ao gerenciador do quinta de Yapuã</TextoboasVindas>
+            <TextoboasVindas>Bem-vindo ao gerenciador da quinta do Ypuã</TextoboasVindas>
           </SessaoTextoBoasVindas>
         </CenteredContainer>
       </CenteredNavbar>

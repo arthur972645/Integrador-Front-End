@@ -55,8 +55,8 @@ const BoxFinanceiroLucro = styled.div`
     padding: 10px;
   }
   @media (max-width: 1024px) {
-    width: 70%;
-    height: 70vh;
+    width: 100%;
+    height: auto;
     padding: 10px;
   }
 

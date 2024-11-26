@@ -21,6 +21,9 @@ const SessaoReservas = styled.section`
   @media (max-width: 480px) {
     height: 45vh; 
   }
+  @media (max-width: 1024px) {
+    height: 65vh;
+  }
 `;
 
 const BoxReservas = styled.div`
@@ -35,12 +38,19 @@ const BoxReservas = styled.div`
   padding: 15px;
 
   @media (max-width: 768px) {
-    width: 80%; 
+    width: 100%; 
     padding: 20px; 
+    height: auto;
   }
   @media (max-width: 480px) {
     width: 90%;
     padding: 15px; 
+    height: auto;
+  }
+  @media (max-width: 1024px) {
+    width: 95%;
+    padding: 15px; 
+    height: auto;
   }
 `;
 
@@ -56,6 +66,9 @@ const Reservas = styled.div`
   }
   @media (max-width: 480px) {
     padding: 10px; 
+  }
+  @media (max-width: 1024px) {
+    padding-top: 10px;
   }
 `;
 
