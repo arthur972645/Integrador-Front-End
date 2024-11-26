@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import { Line } from 'react-chartjs-2'; // Importando o gráfico de linha
 import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend } from 'chart.js'; 
 import TextoInformativo from "../../Components/TextoInformativo/TextoInformativo.jsx";
+import BuscarFaturamentoSemestre from '../BuscaFaturamentoSemestre/BuscaFaturamentoSemestre.jsx';
 
 // Registrando os componentes do Chart.js
 ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend);
 
 const SessaoReservas = styled.section`
-  height: 60vh;
+  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: start;
@@ -126,6 +127,15 @@ const ResultadoBusca = styled.div`
   }
 `;
 
+const SessaoGraficoLinhha = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 100%; 
+  margin: auto;
+`
+
 const ReservaDashboard = () => {
   const [resultados, setResultados] = useState([]); // Para armazenar os resultados da busca
   const [loading, setLoading] = useState(false); // Estado de carregamento
@@ -189,34 +199,16 @@ const ReservaDashboard = () => {
       <SessaoReservas>
         <BoxReservas>
           <Reservas>
-            {/* Filtros para o ano e semestre */}
+         
             <Filtros>
-              <div>
-                <label htmlFor="ano">Ano:</label>
-                <BotaoInput
-                  id="ano"
-                  type="number"
-                  value={ano}
-                  onChange={handleAnoChange}
-                  min="2020"
-                  max="2050"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="semestre">Semestre:</label>
-                <BotaoSelect id="semestre" value={semestre} onChange={handleSemestreChange}>
-                  <option value={1}>Semestre 1</option>
-                  <option value={2}>Semestre 2</option>
-                </BotaoSelect>
-              </div>
-
-              {/* Botão de Buscar */}
-              <BotaoBuscar onClick={handleBuscar}>Buscar</BotaoBuscar>
+            <BuscarFaturamentoSemestre/>
+            
             </Filtros>
 
-            {/* Exibindo o gráfico */}
-            <Line data={data} options={config} />
+            <SessaoGraficoLinhha>
+              <Line data={data} options={config} />
+            </SessaoGraficoLinhha>
+            
           </Reservas>
         </BoxReservas>
       </SessaoReservas>

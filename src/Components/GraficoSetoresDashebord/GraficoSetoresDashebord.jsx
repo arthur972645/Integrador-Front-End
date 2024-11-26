@@ -102,7 +102,7 @@ const EstilizacaoGrafico = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40vh;
+  height: 35vh;
   width: 100%; 
   margin: auto;
   

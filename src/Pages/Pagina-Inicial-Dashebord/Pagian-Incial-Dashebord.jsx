@@ -4,6 +4,11 @@ import Navbar from "../../Components/NavbarDashebord/NavbarDashebord.jsx";
 import FinancieroDashebord from "../../Components/FinanceiroDashebord/FinanceiroDashebord.jsx";
 import FinanceiroGrafico from "../../Components/FinanceiroGrafico/FinanceiroGrafico.jsx";
 import Financeiro from "../../Components/FinanceiroDashebord/FinanceiroDashebord.jsx";
+import styled from "styled-components";
+
+const CointainerGraficoDeLinhas = styled.div`
+  height: 100vh;
+`
 
 const PaginaInicialDashebord = () => {
   return (
@@ -17,7 +22,10 @@ const PaginaInicialDashebord = () => {
       <Navbar />
       <ReservaDashebord />
       <FinancieroDashebord />
-      <FinanceiroGrafico/>
+      <CointainerGraficoDeLinhas>
+        <FinanceiroGrafico/>
+      </CointainerGraficoDeLinhas>
+      
     </motion.div>
   );
 };

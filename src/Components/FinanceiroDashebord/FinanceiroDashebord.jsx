@@ -4,7 +4,7 @@ import LucroPorPeriodo from "../LucroPorPeriodo/LucroPorPeriodo.jsx";
 import GraficoSetoresDashebord from "../GraficoSetoresDashebord/GraficoSetoresDashebord.jsx";
 
 const SessaoFinanciero1 = styled.div`
-  height: 100vh;
+  height: 60vh;
   display: grid;
   grid-template-columns: 1fr 1fr; 
 
