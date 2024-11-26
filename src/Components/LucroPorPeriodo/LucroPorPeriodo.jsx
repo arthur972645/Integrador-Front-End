@@ -1,7 +1,6 @@
   import React, { useState } from 'react';
   import styled from 'styled-components';
-  import BuscarValorTotal from '../BuscaValorTotalDashebord/BuscaValorTotalDashebord.jsx';
-  import GraficoSetores from '../GraficoSetoresDashebord/GraficoSetoresDashebord.jsx';
+  import BuscarValorTotalPorPeriodo from '../BuscarValorTotalPorPeriodo/BuscarValorTotalPorPeriodo.jsx';
   const SessaoFinanceiroLucro = styled.section`
   height: 60vh;
   display: flex;
@@ -83,7 +82,11 @@ const Lucro = styled.div`
 `;
 
 const ValorTodal = styled.div`
+background-color: #f1f8ff;
+box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.09);
+border-radius: 20px;
   height: 50%;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,39 +112,32 @@ const LinhaHorizontal = styled.hr`
 
 
 
-  const LucroPorPeriodo = () => {
-    const [resultados, setResultados] = useState([]);  
-    const [loading, setLoading] = useState(false);      
-    const [buscou, setBuscou] = useState(false);       
-    const [valorTotal, setValorTotal] = useState(null); 
+const LucroPorPeriodo = () => {
+  const [loading, setLoading] = useState(false);      
+  const [valorTotal, setValorTotal] = useState(null); 
 
-    return (
-      <SessaoFinanceiroLucro>
-        <BoxFinanceiroLucro>
-          <Lucro>
-           <LucroPorPeriodoParagrafo>Lucro por periódo</LucroPorPeriodoParagrafo>
-           <LinhaHorizontal />
-            <BuscarValorTotal
-              setResultados={setResultados}
-              setLoading={setLoading}
-              setBuscou={setBuscou}
-              setValorTotal={setValorTotal} 
-            />
+  return (
+    <SessaoFinanceiroLucro>
+      <BoxFinanceiroLucro>
+        <Lucro>
+          <LucroPorPeriodoParagrafo>Lucro por período</LucroPorPeriodoParagrafo>
+          <LinhaHorizontal />
+          <BuscarValorTotalPorPeriodo
+            setLoading={setLoading}
+            setValorTotal={setValorTotal} 
+          />
 
-            {loading && <p>Carregando...</p>}
-            {!loading && resultados.length === 0 && <p>Nenhum dado encontrado</p>} 
-            
-            
-            {valorTotal !== null && (
-              <ValorTodal>
-                <h2>Valor Total: R${valorTotal},00</h2>
-              </ValorTodal>
-            )}
-          </Lucro>
-        </BoxFinanceiroLucro>
-      
-      </SessaoFinanceiroLucro>
-    );
-  };
+          {loading && <p>Carregando...</p>}
+          
+          {valorTotal !== null && (
+            <ValorTodal>
+              <h2>Valor Total: R${valorTotal},00</h2>
+            </ValorTodal>
+          )}
+        </Lucro>
+      </BoxFinanceiroLucro>
+    </SessaoFinanceiroLucro>
+  );
+};
 
-  export default LucroPorPeriodo;
+export default LucroPorPeriodo;

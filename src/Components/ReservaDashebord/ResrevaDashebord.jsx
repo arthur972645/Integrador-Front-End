@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import moment from 'moment';
-import axios from 'axios';
 import BuscaReservas from '../BuscaReservaDashebord/BuscaReservaDashebord.jsx';
 import TextoInformativo from "../../Components/TextoInformativo/TextoInformativo.jsx";
 

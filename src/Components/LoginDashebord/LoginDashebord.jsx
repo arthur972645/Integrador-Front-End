@@ -8,9 +8,7 @@ import { useNavigate } from "react-router-dom";
 const LoginDashebord = () => {
   const navigate = useNavigate();
   const validUsers = [
-    { email: "usuario1@example.com", senha: "senha123" },
-    { email: "usuario2@example.com", senha: "senha456" },
-    { email: "usuario3@example.com", senha: "senha789" },
+    { email: "adm.integrador@gmail.com", senha: "senha123" },
   ];
 
   const [email, setEmail] = useState("");

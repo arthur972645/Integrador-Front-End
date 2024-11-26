@@ -9,9 +9,7 @@ const EstilizacaoSessaoBusca = styled.div`
   @media (max-width: 768px) {
     display: inline;
     padding-top: 5px;
-    
   }
-
   @media (max-width: 480px) {
     display: inline;
     padding-top: 5px;
@@ -49,17 +47,6 @@ const BotaoBuscar = styled.button`
   &:hover {
     background-color: #0056b3;
   }
-  @media (max-width: 768px) {
-    margin-top: 10px;
-  }
-
-  @media (max-width: 480px) {
-    margin-top: 10px;
-  }
-  @media (max-width: 1024px) {
-    margin-top: 10px;
-  }
-  
 `;
 
 const ErroMensagem = styled.p`
@@ -68,7 +55,6 @@ const ErroMensagem = styled.p`
   margin-top: 10px;
 `;
 
-// Função para obter o nome do mês baseado no número do mês (1-12)
 function getMonthName(monthNumber) {
   const months = [
     "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", 
@@ -76,27 +62,32 @@ function getMonthName(monthNumber) {
   ];
   return months[monthNumber - 1];
 }
+
 function getMonthRange(startDate, endDate) {
   const start = new Date(startDate);
   const end = new Date(endDate);
   const monthsData = [];
+
   while (start <= end) {
     const monthStart = new Date(start.getFullYear(), start.getMonth(), 1);
-    const monthEnd = new Date(start.getFullYear(), start.getMonth() + 1, 0);
+    const monthEnd = new Date(start.getFullYear(), start.getMonth() + 1, 0); 
+
     if (monthStart > end) break;
 
     monthsData.push({
       month: getMonthName(start.getMonth() + 1), 
       startDate: monthStart.toISOString().split('T')[0], 
-      endDate: (monthEnd > end ? end : monthEnd).toISOString().split('T')[0],  // formata e garante que não ultrapasse 'diaFim'
+      endDate: (monthEnd > end ? end : monthEnd).toISOString().split('T')[0],  
     });
-    start.setMonth(start.getMonth() + 1); //gepeto ajudou fixar aq
+
+    start.setMonth(start.getMonth() + 1); 
   }
 
   return monthsData;
 }
 
-const BuscarValorTotal = ({ setResultados, setLoading, setBuscou, setValorTotal }) => {
+
+const BuscarValorTotal = ({ setResultados, setLoading, setBuscou, setValorTotal, handleResultado }) => {
   const [diaInicio, setDiaInicio] = useState('');
   const [diaFim, setDiaFim] = useState('');
   const [mensagemErro, setMensagemErro] = useState('');
@@ -108,33 +99,41 @@ const BuscarValorTotal = ({ setResultados, setLoading, setBuscou, setValorTotal 
 
     if (diaInicio && diaFim) {
       const monthsData = getMonthRange(diaInicio, diaFim);
-      const monthlyResults = {};
+      const monthlyResults = {}; 
       try {
-  for (const { month, startDate, endDate } of monthsData) {
-   
-      const response = await axios.get('http://localhost:3333/usuarios', {
-        params: {
-          initial: startDate,
-          final: endDate,
-        },
-      });
-      
-      
-      monthlyResults[month] = response.data;
-    
-    }
-          console.log(monthlyResults)
-       
-        const valorTotalRecebido = response.data.valortotal;
-        setValorTotal(valorTotalRecebido); 
+        for (const { month, startDate, endDate } of monthsData) {
+        
+          const response = await axios.get('http://localhost:3333/usuarios', {
+            params: {
+              initial: startDate,
+              final: endDate,
+            },
+          });
 
-       
-        setResultados(response.data.ListaDeUsers);
+         
+          monthlyResults[month] = response.data; 
+          
+        
+        }
+        
+        
+        handleResultado(monthlyResults);
 
-       
-        if (response.data.ListaDeUsers.length === 0) {
+      
+        let total = 0;
+        for (const month in monthlyResults) {
+          if (monthlyResults[month]?.valortotal) {
+            total += monthlyResults[month].valortotal;
+          }
+        }
+        
+        setValorTotal(total); 
+
+        
+        if (Object.keys(monthlyResults).length === 0) {
           setMensagemErro('Nenhum resultado encontrado para esse período.');
         }
+
       } catch (error) {
         console.error("Erro ao buscar reservas:", error);
         setResultados([]);
@@ -170,3 +169,5 @@ const BuscarValorTotal = ({ setResultados, setLoading, setBuscou, setValorTotal 
 };
 
 export default BuscarValorTotal;
+
+
